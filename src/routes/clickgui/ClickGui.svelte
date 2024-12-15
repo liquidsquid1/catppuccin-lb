@@ -57,7 +57,7 @@
     <Search modules={structuredClone(modules)}/>
 
     <!-- svelte-ignore a11y-missing-attribute -->
-    <iframe width=640 height=360 frameborder="0" scrolling="no" src="https://pomofocus.io" />
+    <!-- <iframe width=640 height=360 frameborder="0" scrolling="no" src="https://pomofocus.io" /> -->
 
     {#each Object.entries(categories) as [category, modules], panelIndex}
         <Panel {category} {modules} {panelIndex}/>

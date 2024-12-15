@@ -11,6 +11,19 @@
     <a href="https://github.com/liquidsquid1/catppuccin-lb/contributors"><img src="https://img.shields.io/github/contributors/liquidsquid1/catppuccin-lb?colorA=363a4f&colorB=a6da95&style=for-the-badge"></a>
 </p>
 
+<details>
+  <summary>Gallery</summary>
+  
+  ## HUD
+  ![](.github/assets/img/hud.png)
+  ## ClickGUI (with Pomofocus integration)
+  ![](.github/assets/img/clickgui.png)
+  ## Main Menu
+  ![](.github/assets/img/menu.png)
+  ## Alt Manager (Modal)
+  ![](.github/assets/img/alt-manager.png)
+</details>
+
 ## Usage
 
 1. Download your preferred flavour
