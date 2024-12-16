@@ -8,6 +8,14 @@ whiskers:
 ---
 
 {%- set palette = flavor.colors -%}
+// actual colors
+
+$green: #{{ palette.green.hex }};
+$red: #{{ palette.red.hex }};
+$flamingo: #{{ palette.flamingo.hex }};
+
+// element colors
+
 $text: #{{ palette.text.hex }};
 $subtext0: #{{ palette.subtext0.hex }};
 $subtext1: #{{ palette.subtext1.hex }};
