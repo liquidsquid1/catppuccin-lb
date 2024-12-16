@@ -24,6 +24,7 @@ $sky: #{{ palette.sky.hex }};
 $sapphire: #{{ palette.sapphire.hex }};
 $blue: #{{ palette.blue.hex }};
 $lavender: #{{ palette.lavender.hex }};
+$base: #{{ palette.base.hex }};
 
 // element colors
 
