@@ -38,7 +38,7 @@
 > [!NOTE]  
 > I am only currently maintaining Mocha (Mauve), however you may change the colour in colors.scss and rebuild!
 
-```
+```sh
 git clone https://github.com/liquidsquid1/catppuccin-lb.git
 ```
 
@@ -47,7 +47,7 @@ git clone https://github.com/liquidsquid1/catppuccin-lb.git
 > [!NOTE]
 > This assumes you already have Node installed.
 
-```
+```sh
 cd catppuccin-lb
 npm install
 npm run build
