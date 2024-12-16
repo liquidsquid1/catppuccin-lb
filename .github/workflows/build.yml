@@ -1,0 +1,41 @@
+name: Build
+
+on:
+  - push
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository and submodules
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - uses: actions/setup-node@v4
+
+      - run: npm install
+      - name: Install Whiskers
+        run: cargo install catppuccin-whiskers
+      - name: Generate colors
+        run: whiskers colors.tera
+
+      - name: Build for each flavor & accent
+        run: |
+          # https://chatgpt.com/share/67609c27-39d8-8005-92a9-84d85879a281
+          # use the following glob: src/generated/colors/*/*/*.scss
+          for flavor in $(ls src/generated/colors); do
+            mkdir -p dists/$flavor
+            for accent in $(ls src/generated/colors/$flavor); do
+              echo "Building $flavor/$accent"
+              cp src/generated/colors/$flavor/$accent src/colors.scss
+              npm run build
+              mv dist dists/$flavor/${accent%.scss}
+              rm src/colors.scss
+            done
+          done
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          path: dist
