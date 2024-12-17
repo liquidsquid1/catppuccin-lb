@@ -11,7 +11,7 @@
     <a href="https://github.com/liquidsquid1/catppuccin-lb/contributors"><img src="https://img.shields.io/github/contributors/liquidsquid1/catppuccin-lb?colorA=363a4f&colorB=a6da95&style=for-the-badge"></a>
 </p>
 
-<details>
+<details open>
   <summary>Gallery</summary>
   
   ## HUD
@@ -27,30 +27,16 @@
 ## Usage
 
 1. Download your preferred flavour
-> [!NOTE]  
-> I am only currently maintaining Mocha (Mauve), however you may change the colour in colors.scss and rebuild!
 
-```
-git clone https://github.com/liquidsquid1/catppuccin-lb.git
-```
+Navigate to the releases section and grab whichever flavour or accent you want. Or, if you can't be bothered to find it, there is a convenient link [here](https://github.com/liquidsquid1/catppuccin-lb/releases/tag/latest)
 
-2. Compile it using Node
-> [!NOTE]
-> This assumes you already have Node installed.
-
-```
-cd catppuccin-lb
-npm install
-npm run build
-```
-
-3. Move it into your client folder
+2. Move it into your client folder
 Navigate to catppuccin-lb/dist and place the dist folder in your themes folder
 > [!NOTE]
 > Don't know how to get to your themes folder? Simply type `.client theme browse` in your minecraft chat and it will open up the directory.
 
-4. Set your theme
+3. Set your theme
 > [!WARNING]
 > This will override your current hud layout, including your positions of elements.
 
-Simply type `.client theme set dist` in your minecraft chat.
+Simply type `.client theme set catppuccin` in your minecraft chat.
