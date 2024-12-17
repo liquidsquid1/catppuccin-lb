@@ -5,6 +5,10 @@ on:
     branches:
       - feat-git-actions
 
+permissions:
+  contents: write
+  id-token: write
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -46,6 +50,6 @@ jobs:
         with:
           files: dists/*.zip
           token: ${{ secrets.GITHUB_TOKEN }}
-          tag_name: "latest"
+          tag_name: "release-${{ github.run_number }}"
           prerelease: true
-          name: "Catppuccin for LiquidBounce"
+          name: "Latest Build"
