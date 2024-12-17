@@ -24,8 +24,10 @@ jobs:
       - name: Generate colors
         run: whiskers colors.tera
 
-      - name: Build for each flavor & accent
+      - name: Build the theme
         run: |
+          mkdir -p dists
+          
           for flavor in $(ls src/generated/colors); do
             for accent in $(ls src/generated/colors/$flavor); do
               echo "Building $flavor/$accent"
