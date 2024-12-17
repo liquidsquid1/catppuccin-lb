@@ -1,0 +1,61 @@
+---
+whiskers:
+  version: 2.5.1
+  matrix:
+    - flavor
+    - accent
+  filename: "src/generated/colors/{{flavor.identifier}}/{{accent}}.scss"
+---
+
+{%- set palette = flavor.colors -%}
+// actual colors
+
+$rosewater: #{{ palette.rosewater.hex }};
+$flamingo: #{{ palette.flamingo.hex }};
+$pink: #{{ palette.pink.hex }};
+$mauve: #{{ palette.mauve.hex }};
+$red: #{{ palette.red.hex }};
+$maroon: #{{ palette.maroon.hex }};
+$peach: #{{ palette.peach.hex }};
+$yellow: #{{ palette.yellow.hex }};
+$green: #{{ palette.green.hex }};
+$teal: #{{ palette.teal.hex }};
+$sky: #{{ palette.sky.hex }};
+$sapphire: #{{ palette.sapphire.hex }};
+$blue: #{{ palette.blue.hex }};
+$lavender: #{{ palette.lavender.hex }};
+
+
+$base: #{{ palette.base.hex }};
+$mantle: #{{ palette.mantle.hex }};
+$crust: #{{ palette.crust.hex }};
+
+// element colors
+
+$text: #{{ palette.text.hex }};
+$subtext0: #{{ palette.subtext0.hex }};
+$subtext1: #{{ palette.subtext1.hex }};
+$overlay0: #{{ palette.overlay0.hex }};
+$overlay1: #{{ palette.overlay1.hex }};
+$overlay2: #{{ palette.overlay2.hex }};
+$surface0: #{{ palette.surface0.hex }};
+$surface1: #{{ palette.surface1.hex }};
+$surface2: #{{ palette.surface2.hex }};
+
+$accent: #{{ palette[accent].hex }};
+
+$arraylist-tag-color: $subtext0;
+
+$menu-button-loader-color: white;
+$clickgui-grid-color: rgba(127, 127, 127, 0.25);
+
+$hotbar-base-color: black;
+$hotbar-text-color: white;
+/* TODO: currently unused */
+$hotbar-experience-color: $green;
+$hotbar-health-color: $red;
+$hotbar-hunger-color: $flamingo;
+
+$menu-account-premium-color: $accent;
+$overlay0: rgba(211, 211, 211, 255);
+$menu-error-color: $red;
