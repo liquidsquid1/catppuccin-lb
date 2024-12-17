@@ -3,7 +3,7 @@ name: Build
 on:
   push:
     branches:
-      - feat-git-actions
+      - main
 
 permissions:
   contents: write
@@ -35,21 +35,26 @@ jobs:
           for flavor in $(ls src/generated/colors); do
             for accent in $(ls src/generated/colors/$flavor); do
               echo "Building $flavor/$accent"
-              mkdir -p temp_build
+              mkdir -p catppuccin
               cp src/generated/colors/$flavor/$accent src/colors.scss
               npm run build
-              mv dist/* temp_build/
+              mv dist/* catppuccin/
               rm src/colors.scss
-              zip -r "dists/Catppuccin-${flavor}-${accent%.scss}.zip" temp_build/*
-              rm -rf temp_build
+              zip -r "dists/Catppuccin-${flavor}-${accent%.scss}.zip" catppuccin/*
+              rm -rf catppuccin
             done
           done
 
+      - name: Create tag for the release
+        run: |
+          # Use the commit SHA as the release tag
+          git tag "commit-${{ github.sha }}"
+          git push origin "commit-${{ github.sha }}"
       - name: Upload to GitHub Release
         uses: softprops/action-gh-release@v1
         with:
           files: dists/*.zip
           token: ${{ secrets.GITHUB_TOKEN }}
-          tag_name: "release-${{ github.run_number }}"
+          tag_name: "commit-${{ github.sha }}"
           prerelease: true
-          name: "Latest Build"
+          name: "Catppuccin for LiquidBounce"
