@@ -31,6 +31,7 @@
 Navigate to the releases section and grab whichever flavour or accent you want. Or, if you can't be bothered to find it, there is a convenient link [here](https://github.com/liquidsquid1/catppuccin-lb/releases/tag/latest)
 
 2. Move it into your client folder
+
 Navigate to catppuccin-lb/dist and place the dist folder in your themes folder
 > [!NOTE]
 > Don't know how to get to your themes folder? Simply type `.client theme browse` in your minecraft chat and it will open up the directory.
