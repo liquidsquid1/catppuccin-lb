@@ -45,7 +45,7 @@ jobs:
         uses: softprops/action-gh-release@v1
         with:
           files: dists/*.zip
-          repo_token: ${{ secrets.GITHUB_TOKEN }}
-          tag: "latest"
+          token: ${{ secrets.GITHUB_TOKEN }}
+          tag_name: "latest"
           prerelease: true
-          title: "Catppuccin for LiquidBounce"
+          name: "Catppuccin for LiquidBounce"
