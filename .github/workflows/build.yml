@@ -1,0 +1,47 @@
+name: Build
+
+on:
+  push:
+    branches:
+      - feat-git-actions
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository and submodules
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - uses: actions/setup-node@v4
+
+      - run: npm install
+
+      - name: Install Whiskers
+        run: cargo install catppuccin-whiskers
+
+      - name: Generate colors
+        run: whiskers colors.tera
+
+      - name: Build for each flavor & accent
+        run: |
+          for flavor in $(ls src/generated/colors); do
+            for accent in $(ls src/generated/colors/$flavor); do
+              echo "Building $flavor/$accent"
+              mkdir -p temp_build
+              cp src/generated/colors/$flavor/$accent src/colors.scss
+              npm run build
+              mv dist/* temp_build/
+              rm src/colors.scss
+              zip -r "dists/Catppuccin-${flavor}-${accent%.scss}.zip" temp_build/*
+              rm -rf temp_build
+            done
+          done
+
+      - name: Upload to GitHub Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: dists/*.zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
