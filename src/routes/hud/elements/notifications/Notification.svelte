@@ -81,7 +81,7 @@
 .title {
   grid-area: b;
   font-size: 14px;
-  color: white;
+  color: $text;
   font-weight: 900;
 }
 
