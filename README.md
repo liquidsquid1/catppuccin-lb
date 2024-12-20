@@ -24,9 +24,9 @@
 3. Drag the downloaded flavor file into your themes folder that was opened.
 4. Apply the theme with `.client theme set catppuccin`
 
-## 💝 Thanks to
+## 💝 Thanks to contributors
 
-- [liquidsquid1](<https://github.com/liquidsquid1>)
+- [ccetl](<https://github.com/ccetl>)
 
 &nbsp;
 
