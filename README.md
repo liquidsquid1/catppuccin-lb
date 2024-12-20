@@ -27,6 +27,8 @@
 ## 💝 Thanks to
 
 - [liquidsquid1](<https://github.com/liquidsquid1>)
+- [ccetl](<https://github.com/ccetl>)
+- [DataM0del](<https://github.com/DataM0del>)
 
 &nbsp;
 
