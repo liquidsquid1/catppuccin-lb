@@ -55,9 +55,9 @@ jobs:
         run: |
           git fetch --tags
 
-          TAG=${{ steps.version_tag.outputs.version }}
-          echo "Creating tag $TAG"
-          
+          COMMIT_HASH=$(git rev-parse --short HEAD)
+
+          TAG="prerelease-$COMMIT_HASH"
           git tag $TAG
           git push origin $TAG
 
