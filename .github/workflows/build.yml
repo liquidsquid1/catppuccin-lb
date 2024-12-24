@@ -3,7 +3,7 @@ name: Build
 on:
   push:
     branches:
-      - feat-prerelease-actions
+      - feat-prelease-actions
 
 permissions:
   contents: write
