@@ -45,27 +45,27 @@ jobs:
             done
           done
 
-      - name: Create or update the latest tag
+      - name: Generate version tag
+        id: version_tag
         run: |
-          # Ensure we have the latest code
+          TAG="prerelease-$(date +'%Y%m%d%H%M%S')"
+          echo "::set-output name=version::$TAG"
+
+      - name: Create a new Git tag
+        run: |
           git fetch --tags
 
-          # Check if the 'latest' tag already exists
-          if git rev-parse "refs/tags/latest" >/dev/null 2>&1; then
-            echo "Tag 'latest' exists, updating it."
-            git tag -d latest # Delete the old 'latest' tag locally
-            git push origin --delete latest # Delete the old 'latest' tag remotely
-          fi
+          TAG=${{ steps.version_tag.outputs.version }}
+          echo "Creating tag $TAG"
+          
+          git tag $TAG
+          git push origin $TAG
 
-          # Create the 'latest' tag pointing to the latest commit
-          git tag latest
-          git push origin latest # Push the new 'latest' tag
-      
       - name: Upload to GitHub Release
         uses: softprops/action-gh-release@v1
         with:
           files: dists/*.zip
           token: ${{ secrets.GITHUB_TOKEN }}
-          tag_name: "latest"
+          tag_name: ${{ steps.version_tag.outputs.version }}
           prerelease: false
-          name: "[Latest] Catppuccin for LiquidBounce"
+          name: "Catppuccin for LiquidBounce | $(date +'%Y/%m/%d')"
