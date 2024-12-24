@@ -9,7 +9,7 @@
 	<a href="https://github.com/liquidsquid1/catppuccin-lb/stargazers"><img src="https://img.shields.io/github/stars/liquidsquid1/catppuccin-lb?colorA=363a4f&colorB=b7bdf8&style=for-the-badge"></a>
 	<a href="https://github.com/liquidsquid1/catppuccin-lb/issues"><img src="https://img.shields.io/github/issues/liquidsquid1/catppuccin-lb?colorA=363a4f&colorB=f5a97f&style=for-the-badge"></a>
 	<a href="https://github.com/liquidsquid1/catppuccin-lb/contributors"><img src="https://img.shields.io/github/contributors/liquidsquid1/catppuccin-lb?colorA=363a4f&colorB=a6da95&style=for-the-badge"></a>
-	<a href="https://github.com/liquidsquid1/catppuccin-lb/releases/tag/latest"><img src="https://img.shields.io/github/downloads/liquidsquid1/catppuccin-lb/total?label=Downloads&colorA=363a4f&colorB=b7bdf8&style=for-the-badge"></a>
+	<a href="https://github.com/liquidsquid1/catppuccin-lb/releases/"><img src="https://img.shields.io/github/downloads/liquidsquid1/catppuccin-lb/total?label=Downloads&colorA=363a4f&colorB=b7bdf8&style=for-the-badge"></a>
 </p>
 
 <p align="center">
