@@ -68,4 +68,4 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           tag_name: ${{ steps.version_tag.outputs.version }}
           prerelease: false
-          name: "Catppuccin for LiquidBounce | $(date +'%Y/%m/%d')"
+          name: "Catppuccin for LiquidBounce (AutoBuild)"
