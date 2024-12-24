@@ -49,7 +49,6 @@ jobs:
         id: version_tag
         run: |
           TAG="prerelease-$(date +'%Y%m%d%H%M%S')"
-          echo "Generated version tag: $TAG"
           echo "::set-output name=version::$TAG"
 
       - name: Create a new Git tag
@@ -69,4 +68,4 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           tag_name: ${{ steps.version_tag.outputs.version }}
           prerelease: false
-          name: "[LATEST] Catppuccin for LiquidBounce"
+          name: "Catppuccin for LiquidBounce | $(date +'%Y/%m/%d')"
