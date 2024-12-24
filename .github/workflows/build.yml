@@ -3,7 +3,7 @@ name: Build
 on:
   push:
     branches:
-      - feat-prelease-actions
+      - main
 
 permissions:
   contents: write
@@ -68,5 +68,5 @@ jobs:
           files: dists/*.zip
           token: ${{ secrets.GITHUB_TOKEN }}
           tag_name: ${{ steps.version_tag.outputs.version }}
-          prerelease: true
-          name: "[Pre-release] Catppuccin for LiquidBounce"
+          prerelease: false
+          name: "[LATEST] Catppuccin for LiquidBounce"
