@@ -21,7 +21,7 @@
 {/key}
 
 <style lang="scss">
-  @import "../../colors.scss";
+  @use "../../colors.scss" as *;
 
   .description-wrapper {
     position: fixed;

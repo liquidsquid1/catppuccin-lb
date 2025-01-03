@@ -3,7 +3,7 @@
 </div>
 
 <style lang="scss">
-    @import "../../../../colors.scss";
+    @use "../../../../colors.scss" as *;
 
     .button-container {
       background-color: rgba($base, 0.5);

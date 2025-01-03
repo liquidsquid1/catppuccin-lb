@@ -43,7 +43,7 @@
 </div>
 
 <style lang="scss">
-  @import "../../../../../colors.scss";
+  @use "../../../../../colors.scss" as *;
 
   .select {
     cursor: pointer;
@@ -73,10 +73,6 @@
       color: $text;
       font-size: 20px;
       font-weight: 900;
-
-      span {
-        font-weight: 500;
-      }
 
     }
   }

@@ -110,12 +110,9 @@
 </div>
 
 <style lang="scss">
-    @import "../../../../colors.scss";
+    @use "../../../../colors.scss" as *;
 
     .tabgui {
-        //position: fixed;
-        //top: 90px;
-        //left: 15px;
         display: flex;
     }
 

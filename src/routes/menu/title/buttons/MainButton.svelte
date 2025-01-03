@@ -13,7 +13,7 @@
 
 <!-- svelte-ignore a11y-no-static-element-interactions -->
 <!-- svelte-ignore a11y-click-events-have-key-events -->
-<div class="main-button" on:mouseenter={() => hovered = true} on:mouseleave={() => hovered = false}
+<div class="main-button" on:mouseenter={() => hovered = true} on:mouseleave={() => hovered = false} on:click={() => hovered = false}
    on:click={() => dispatch("click")}>
   <div class="icon">
     <img src="img/menu/icon-{icon}.svg" alt={icon}>
@@ -27,7 +27,7 @@
 </div>
 
 <style lang="scss">
-@import "../../../../colors.scss";
+@use "../../../../colors.scss" as *;
 
 .main-button {
   background-color: rgba($base, 0.9);

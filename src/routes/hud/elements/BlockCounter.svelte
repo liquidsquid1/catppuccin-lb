@@ -66,7 +66,7 @@
 {/if}
 
 <style lang="scss">
-  @import "../../../colors.scss";
+  @use "../../../colors.scss" as *;
 
   .notification {
     background-color: rgba($base, 0.8);
