@@ -30,7 +30,8 @@
 </button>
 
 <style lang="scss">
-  @import "../../../../colors.scss";
+  @use "sass:color";
+  @use "../../../../colors.scss" as *;
 
   .button-setting {
     position: relative;
@@ -50,11 +51,11 @@
     }
 
     &:not([disabled]):hover {
-      background-color: darken(desaturate($accent, 30%), 10%);
+      background-color: color.adjust(color.adjust($accent, $saturation: -30%), $lightness: -10%);
       cursor: pointer;
 
       &.secondary {
-        background-color: darken(desaturate($base, 30%), 10%);
+        background-color: color.adjust(color.adjust($base, $saturation: -30%), $lightness: -10%);
       }
     }
 

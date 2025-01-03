@@ -17,20 +17,20 @@
 
 <style lang="scss">
   @use "sass:color";
-  @import "../../../../colors.scss";
+  @use "../../../../colors.scss" as *;
 
   .switch-container {
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    margin: none; /* Adjust margin for the smaller size */
+    margin: none;
     transition: all 0.3s ease;
   }
 
   .title {
     color: $text;
-    font-size: 11px; /* Reduced from 22px to 50% */
-    margin-left: 6px; /* Reduced from 12px */
+    font-size: 11px;
+    margin-left: 6px;
     font-weight: 500;
     transition: color 0.2s ease-in-out;
   }
@@ -45,8 +45,8 @@
   .checkbox {
     display: block;
     position: relative;
-    width: 16px; /* Reduced from 32px to 50% */
-    height: 16px; /* Reduced from 32px to 50% */
+    width: 16px;
+    height: 16px;
     background-color: rgba($crust, 0.8);
     border-radius: 4px;
     border: 2px solid rgba(white, 0.1);

@@ -5,14 +5,14 @@
 </script>
 
 <div class="notification">
-  <div class="icon {severity.toString().toLowerCase()}"/>
+  <div class="icon {severity.toString().toLowerCase()}"></div>
   <div class="title">{title}</div>
   <div class="message">{message}</div>
 </div>
 
 <style lang="scss">
 
-@import "../../../../colors.scss";
+@use "../../../../colors.scss" as *;
 
 .notification {
   display: grid;

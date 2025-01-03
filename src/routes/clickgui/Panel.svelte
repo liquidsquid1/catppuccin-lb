@@ -145,9 +145,9 @@
         savePanelConfig();
     }
 
-    highlightModuleName.subscribe(() => {
+    highlightModuleName.subscribe((m) => {
         const highlightModule = modules.find(
-            (m) => m.name === $highlightModuleName,
+            (m) => m.name === m.name,
         );
         if (highlightModule) {
             panelConfig.zIndex = ++$maxPanelZIndex;
@@ -207,6 +207,7 @@
         />
         <span class="category">{category}</span>
 
+        <!-- svelte-ignore a11y_consider_explicit_label -->
         <button class="expand-toggle" on:click={toggleExpanded}>
             <div class="icon" class:expanded={panelConfig.expanded}></div>
         </button>
@@ -220,7 +221,7 @@
 </div>
 
 <style lang="scss">
-  @import "../../colors.scss";
+  @use "../../colors.scss" as *;
 
   .panel {
     border-radius: 16px;

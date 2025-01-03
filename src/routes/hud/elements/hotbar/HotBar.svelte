@@ -166,14 +166,7 @@
 {/if}
 
 <style lang="scss">
-  @import "../../../../colors.scss";
-
-  .hotbar {
-    //position: fixed;
-    //bottom: 15px;
-    //left: 50%;
-    //transform: translateX(-50%);
-  }
+  @use "../../../../colors.scss" as *;
 
   .pair {
     display: grid;

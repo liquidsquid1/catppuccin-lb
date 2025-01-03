@@ -89,7 +89,7 @@
 </div>
 
 <style lang="scss">
-  @import "../../../colors.scss";
+  @use "../../../colors.scss" as *;
 
   .setting {
     padding: 7px 0px;

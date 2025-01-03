@@ -19,7 +19,7 @@
 
 <style lang="scss">
 
-  @import "../../../../colors.scss";
+  @use "../../../../colors.scss" as *;
 
   .container {
     position: relative;

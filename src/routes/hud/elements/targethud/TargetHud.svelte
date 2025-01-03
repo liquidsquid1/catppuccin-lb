@@ -69,7 +69,7 @@
 {/if}
 
 <style lang="scss">
-    @import "../../../../colors.scss";
+    @use "../../../../colors.scss" as *;
 
     .targethud {
         background-color: rgba($base, 0.68);

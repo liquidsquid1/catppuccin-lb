@@ -31,13 +31,10 @@
 {/if}
 
 <style lang="scss">
-@import "../../../colors.scss";
+@use "../../../colors.scss" as *;
 
 .scoreboard {
   width: max-content;
-  //position: fixed;
-  //left: 15px;
-  //top: 550px;
   min-width: 200px;
   border-radius: 12px;
   overflow: hidden;
