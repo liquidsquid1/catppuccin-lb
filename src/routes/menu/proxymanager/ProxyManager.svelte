@@ -105,11 +105,6 @@
     }
 
     async function connectToProxy(id: number) {
-        notification.set({
-            title: "ProxyManager",
-            message: "Connecting to proxy...",
-            error: false
-        });
         await connectToProxyRest(id);
         notification.set({
             title: "ProxyManager",
