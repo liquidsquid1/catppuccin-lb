@@ -109,7 +109,7 @@
     });
 
     listen("toggleModule", (e: ModuleToggleEvent) => {
-        const mod = filteredModules.find((m) => m.name === e.moduleName);
+        const mod = modules.find((m) => m.name === e.moduleName);
         if (!mod) {
             return;
         }
