@@ -12,9 +12,18 @@
 	<a href="https://github.com/liquidsquid1/catppuccin-lb/releases/"><img src="https://img.shields.io/github/downloads/liquidsquid1/catppuccin-lb/total?label=Downloads&colorA=363a4f&colorB=b7bdf8&style=for-the-badge"></a>
 </p>
 
-<p align="center">
-	<img src="https://raw.githubusercontent.com/catppuccin/catppuccin/main/assets/previews/preview.webp"/>
-</p>
+<details open>
+  <summary>Gallery</summary>
+  
+  ## HUD
+  ![](.github/assets/img/hud.png)
+  ## ClickGUI
+  ![](.github/assets/img/clickgui.png)
+  ## Main Menu
+  ![](.github/assets/img/menu.png)
+  ## Alt Manager (Modal)
+  ![](.github/assets/img/alt-manager.png)
+</details>
 
 ## View the colours at [catppuccin.com](https://catppuccin.com/palette)
 
