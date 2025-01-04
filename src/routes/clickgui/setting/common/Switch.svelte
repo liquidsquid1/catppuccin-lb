@@ -64,10 +64,6 @@
     box-shadow: 0 0 8px 2px $accent;
   }
 
-  .switch:hover .checkbox {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-  }
-
   .switch:focus-within .checkbox {
     outline: 2px solid $accent;
   }

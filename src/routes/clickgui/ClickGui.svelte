@@ -25,7 +25,9 @@
 
     function applyValues(configurable: ConfigurableSetting) {
         clickGuiScaleFactor = configurable.value.find(v => v.name === "Scale")?.value as number ?? 1;
+
         const snappingValue = configurable.value.find(v => v.name === "Snapping") as TogglableSetting;
+
         $snappingEnabled = snappingValue?.value.find(v => v.name === "Enabled")?.value as boolean ?? true;
         $gridSize = snappingValue?.value.find(v => v.name === "GridSize")?.value as number ?? 10;
     }
@@ -50,14 +52,11 @@
     });
 </script>
 
-<div class="clickgui" class:grid={$showGrid}
+<div class="clickgui" class:grid={$showGrid} transition:fade|global={{duration: 200}}
      style="transform: scale({$scaleFactor * 50}%); width: {2 / $scaleFactor * 100}vw; height: {2 / $scaleFactor * 100}vh;
      background-size: {$gridSize}px {$gridSize}px;">
     <Description/>
     <Search modules={structuredClone(modules)}/>
-
-    <!-- svelte-ignore a11y-missing-attribute -->
-    <!-- <iframe width=640 height=360 frameborder="0" scrolling="no" src="https://pomofocus.io" /> -->
 
     {#each Object.entries(categories) as [category, modules], panelIndex}
         <Panel {category} {modules} {panelIndex}/>
@@ -70,6 +69,7 @@
   $GRID_SIZE: 10px;
 
   .clickgui {
+    background-color: rgba($base, 0.6);
     overflow: hidden;
     position: absolute;
     will-change: opacity;
@@ -81,12 +81,5 @@
       background-image: linear-gradient(to right, $clickgui-grid-color 1px, transparent 1px),
       linear-gradient(to bottom, $clickgui-grid-color 1px, transparent 1px);
     }
-  }
-
-  iframe {
-    position: absolute;
-    right: 8px;
-    bottom: 8px;
-    border-radius: 24px;
   }
 </style>

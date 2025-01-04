@@ -42,6 +42,7 @@
             !(e.screen.title === "ClickGUI" || e.screen.title === "VS-CLICKGUI")) {
             return;
         }
+
         if (!binding) {
             return;
         }
@@ -103,7 +104,7 @@
     }
 
     .none {
-      color: $overlay0;
+      color: $subtext0;
     }
   }
 </style>
