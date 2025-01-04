@@ -13,7 +13,6 @@
     import {setItem} from "../../integration/persistent_storage";
     import {convertToSpacedString, spaceSeperatedNames} from "../../theme/theme_config";
     import {scaleFactor} from "./clickgui_store";
-    import { Howl } from "howler";
 
     export let name: string;
     export let enabled: boolean;
@@ -24,16 +23,6 @@
     let configurable: ConfigurableSetting;
     const path = `clickgui.${name}`;
     let expanded = false;
-
-    const enable = new Howl({
-        src: ['audio/clickgui/enable.mp3'],
-        preload: true
-    });
-
-    const disable = new Howl({
-        src: ['audio/clickgui/disable.mp3'],
-        preload: true
-    });
 
     onMount(async () => {
         configurable = await getModuleSettings(name);
@@ -48,13 +37,15 @@
             return;
         }
 
-        if (!moduleNameElement) {
+        setTimeout(() => {
+            if (!moduleNameElement) {
                 return;
             }
             moduleNameElement.scrollIntoView({
-                behavior: "instant",
+                behavior: "smooth",
                 block: "center",
-        });
+            });
+        }, 1000);
     });
 
     async function updateModuleSettings() {
@@ -63,11 +54,6 @@
     }
 
     async function toggleModule() {
-        if (enabled) {
-            disable.play();
-        } else {
-            enable.play();
-        }
         await setModuleEnabled(name, !enabled);
     }
 
@@ -76,7 +62,7 @@
         const x = moduleNameElement?.getBoundingClientRect().right ?? 0;
         let moduleDescription = description;
         if (aliases.length > 0) {
-            moduleDescription += ` (aka ${aliases.map(a => $spaceSeperatedNames ? convertToSpacedString(a) : a).join(", ")})`;
+            moduleDescription += ` (aka ${aliases.map(name => $spaceSeperatedNames ? convertToSpacedString(name) : name).join(", ")})`;
         }
         descriptionStore.set({
             x: x * (2 / $scaleFactor),
@@ -109,13 +95,8 @@
             bind:this={moduleNameElement}
             class:enabled
             class:highlight={name === $highlightModuleName}
-            class:dim={$highlightModuleName !== null && name !== $highlightModuleName}
     >
-        {#if $spaceSeperatedNames}
-            {convertToSpacedString(name)}
-        {:else}
-            {name}
-        {/if}
+        {$spaceSeperatedNames ? convertToSpacedString(name) : name}
     </div>
 
     {#if expanded && configurable}
@@ -135,19 +116,14 @@
 
     .name {
       cursor: pointer;
-      transition: ease background-color 0.2s,
-      ease color 0.2s, ease filter 0.2s;
-
-      color: $overlay0;
-      text-align: left;
+      transition: ease background-color 0.5s,
+      ease color 0.5s;
+      color: $subtext0;
+      text-align: center;
       font-size: 12px;
       font-weight: 500;
       position: relative;
-      padding: 4px 10px;
-
-      &.dim {
-        filter: opacity(50%) blur(1px);
-      }
+      padding: 10px;
 
       &.highlight::before {
         content: "";
@@ -165,7 +141,15 @@
       }
 
       &.enabled {
-        color: $accent;
+        background-color: $accent;
+        box-shadow: 0px 0px 12px $accent;
+        color: $base;
+        font-weight: 900;
+
+        &::after {
+          filter: brightness(0);
+          opacity: 0.9;
+        }
       }
     }
 

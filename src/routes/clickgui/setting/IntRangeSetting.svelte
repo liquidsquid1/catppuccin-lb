@@ -1,9 +1,9 @@
 <script lang="ts">
     import "nouislider/dist/nouislider.css";
     import "./nouislider.scss";
-    import { createEventDispatcher, onMount } from "svelte";
+    import {createEventDispatcher, onMount} from "svelte";
     import noUiSlider, {type API} from "nouislider";
-    import type { ModuleSetting, IntRangeSetting } from "../../../integration/types";
+    import type {IntRangeSetting, ModuleSetting} from "../../../integration/types";
     import ValueInput from "./common/ValueInput.svelte";
     import {convertToSpacedString, spaceSeperatedNames} from "../../../theme/theme_config";
 
@@ -36,6 +36,8 @@
             };
             setting = { ...cSetting };
         });
+
+
         apiSlider.on("set", () => {
             dispatch("change");
         });

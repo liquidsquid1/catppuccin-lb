@@ -1,8 +1,8 @@
 <script lang="ts">
-    import type {Module} from "../../integration/types";
+    import type {ConfigurableSetting, Module} from "../../integration/types";
     import {getModuleSettings, setModuleEnabled} from "../../integration/rest";
     import {listen} from "../../integration/ws";
-    import type {KeyboardKeyEvent, ModuleToggleEvent} from "../../integration/events";
+    import type {ClickGuiValueChangeEvent, KeyboardKeyEvent, ModuleToggleEvent} from "../../integration/events";
     import {highlightModuleName} from "./clickgui_store";
     import {onMount} from "svelte";
     import {convertToSpacedString, spaceSeperatedNames} from "../../theme/theme_config";
@@ -31,8 +31,10 @@
 
         selectedIndex = 0;
 
-        filteredModules = modules.filter((m) => m.name.toLowerCase().includes(query.toLowerCase().replaceAll(" ", ""))
-            || m.aliases.some(a => a.toLowerCase().includes(query.toLowerCase().replaceAll(" ", "")))
+        const pureQuery = query.toLowerCase().replaceAll(" ", "");
+
+        filteredModules = modules.filter((m) => m.name.toLowerCase().includes(pureQuery)
+            || m.aliases.some(a => a.toLowerCase().includes(pureQuery))
         );
     }
 
@@ -41,6 +43,7 @@
             !(e.screen.title === "ClickGUI" || e.screen.title === "VS-CLICKGUI")) {
             return;
         }
+
         if (filteredModules.length === 0 || e.action === 0) {
             return;
         }
@@ -100,15 +103,19 @@
         }
     }
 
+    function applyValues(configurable: ConfigurableSetting) {
+        autoFocus = configurable.value.find(v => v.name === "SearchBarAutoFocus")?.value as boolean ?? true;
+    }
+
     onMount(async () => {
         const clickGuiSettings = await getModuleSettings("ClickGUI");
-        autoFocus = clickGuiSettings.value.find(v => v.name === "SearchBarAutoFocus")?.value as boolean ?? true
+        applyValues(clickGuiSettings);
         if (autoFocus) {
             searchInputElement.focus();
         }
     });
 
-    listen("toggleModule", (e: ModuleToggleEvent) => {
+    listen("moduleToggle", (e: ModuleToggleEvent) => {
         const mod = modules.find((m) => m.name === e.moduleName);
         if (!mod) {
             return;
@@ -118,6 +125,10 @@
     });
 
     listen("keyboardKey", handleKeyDown);
+
+    listen("clickGuiValueChange", (e: ClickGuiValueChangeEvent) => {
+        applyValues(e.configurable);
+    });
 </script>
 
 <svelte:window on:click={handleWindowClick} on:keydown={handleWindowKeyDown} on:contextmenu={handleWindowClick}/>
@@ -157,7 +168,7 @@
                         </div>
                         <div class="aliases">
                             {#if aliases.length > 0}
-                                (aka {aliases.map(a => $spaceSeperatedNames ? convertToSpacedString(a) : a).join(", ")})
+                                (aka {aliases.map(name => $spaceSeperatedNames ? convertToSpacedString(name) : name).join(", ")})
                             {/if}
                         </div>
                     </div>
@@ -182,10 +193,10 @@
     border-radius: 30px;
     overflow: hidden;
     transition: ease border-radius 0.2s;
-    box-shadow: 0 0 10px rgba($crust, 0.8);
+    box-shadow: 0 0 10px rgba($base, 0.5);
 
     &.has-results {
-      border-radius: 30px;
+      border-radius: 10px;
     }
 
     &:focus-within {
@@ -194,7 +205,7 @@
   }
 
   .results {
-    border-top: solid 2px $mantle;
+    border-top: solid 2px $accent;
     padding: 5px 25px;
     max-height: 250px;
     overflow: auto;
@@ -208,7 +219,7 @@
       grid-template-columns: max-content 1fr max-content;
 
       .module-name {
-        color: $overlay0;
+        color: $subtext0;
         transition: ease color 0.2s;
       }
 
@@ -219,7 +230,7 @@
       }
 
       .aliases {
-        color: rgba($overlay0, .6);
+        color: rgba($subtext0, .6);
         margin-left: 10px;
       }
 
@@ -239,7 +250,7 @@
     }
 
     .placeholder {
-      color: rgba($text, 0.75);
+      color: $subtext0;
       font-size: 16px;
       padding: 10px 0;
     }

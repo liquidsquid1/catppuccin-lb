@@ -29,9 +29,10 @@
 <div class="dropdown" class:expanded on:click={() => (expanded = !expanded)}>
     <div class="head" bind:this={dropdownHead}>
         {#if name !== null}
-            <span class="text">{name} &bull; {$spaceSeperatedNames ? convertToSpacedString(value) : value}</span>
+            <span class="text">{$spaceSeperatedNames ? convertToSpacedString(name) : name}
+                &bull; {$spaceSeperatedNames ? convertToSpacedString(value) : value}</span>
         {:else}
-            <span class="text">{value}</span>
+            <span class="text">{$spaceSeperatedNames ? convertToSpacedString(value) : value}</span>
         {/if}
     </div>
 
@@ -69,15 +70,13 @@
   }
 
   .head {
-    background-color: rgba($base, 0.8);
-    border: 1px solid rgba(white, 0.1);
-    box-shadow: 0px 0px 8px rgba($crust, 0.5);
+    background-color: $accent;
     padding: 6px 10px;
     cursor: pointer;
     display: flex;
     align-items: center;
     position: relative;
-    border-radius: 6px;
+    border-radius: 3px;
     transition: ease border-radius .2s;
 
     .text {
@@ -110,21 +109,19 @@
 
   .options {
     padding: 6px 10px;
-    background-color: rgba($crust, 0.8);
-    box-shadow: 0px 0px 8px rgba($crust, 0.5);
+    background-color: $base;
+    border: solid 1px $accent;
     border-top: none;
     border-radius: 0 0 3px 3px;
     z-index: 9999;
     width: 100%;
     position: absolute;
-    border-bottom-left-radius: 6px;
-    border-bottom-right-radius: 6px;
 
     .option {
-      color: $overlay0;
+      color: $subtext0;
       font-weight: 500;
       font-size: 12px;
-      padding: 2px 0;
+      padding: 5px 0;
       cursor: pointer;
       text-align: center;
       transition: ease color 0.2s;

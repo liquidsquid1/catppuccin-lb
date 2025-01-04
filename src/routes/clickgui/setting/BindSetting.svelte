@@ -32,6 +32,7 @@
             !(e.screen.title === "ClickGUI" || e.screen.title === "VS-CLICKGUI")) {
             return;
         }
+
         if (!binding) {
             return;
         }
@@ -103,10 +104,9 @@
   }
 
   .change-bind {
-    background-color: rgba($base, 0.8);
-    border: 1px solid rgba(white, 0.1);
-    box-shadow: 0px 0px 8px rgba($crust, 0.5);
-    border-radius: 6px;
+    background-color: transparent;
+    border: solid 2px $accent;
+    border-radius: 3px;
     cursor: pointer;
     padding: 4px;
     font-weight: 500;
@@ -123,7 +123,7 @@
     }
 
     .none {
-      color: $overlay0;
+      color: $subtext0;
     }
   }
 </style>

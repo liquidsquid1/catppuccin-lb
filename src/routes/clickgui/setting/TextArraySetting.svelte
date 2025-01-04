@@ -92,7 +92,7 @@
     transition: ease background-color .2s;
 
     &:hover {
-      background-color: color.adjust(color.adjust($accent, $saturation: -30%), $lightness: -10%);
+        background-color: color.adjust(color.adjust($accent, $saturation: -30%), $lightness: -10%);
     }
   }
 
