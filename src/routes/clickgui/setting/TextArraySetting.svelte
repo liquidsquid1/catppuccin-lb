@@ -98,12 +98,12 @@
 
   .value {
     width: 100%;
-    background-color: rgba($base, .36);
-    font-family: monospace;
+    background-color: rgba($crust, .5);
+    border: 1px solid rgba($text, 0.1);
+    border-left: 2px solid $accent;
     font-size: 12px;
     color: $text;
     border: none;
-    border-bottom: solid 2px $accent;
     padding: 6px;
     border-radius: 3px;
     transition: ease border-color .2s;

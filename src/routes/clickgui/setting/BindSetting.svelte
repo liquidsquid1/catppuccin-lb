@@ -104,18 +104,19 @@
   }
 
   .change-bind {
-    background-color: transparent;
-    border: solid 2px $accent;
-    border-radius: 3px;
+    background: $mantle;
+    border: 2px solid rgba($text, 0.1);
+    border-radius: 6px;
     cursor: pointer;
     padding: 4px;
-    font-weight: 500;
+    font-weight: 900;
     color: $text;
     font-size: 12px;
     font-family: "Inter", sans-serif;
     width: 100%;
     display: flex;
     justify-content: center;
+    align-items: center;
     column-gap: 5px;
 
     .name {
@@ -123,7 +124,9 @@
     }
 
     .none {
-      color: $subtext0;
+      color: $subtext1;
+      opacity: 75%;
+      font-weight: 300;
     }
   }
 </style>

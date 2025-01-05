@@ -70,13 +70,14 @@
   }
 
   .head {
-    background-color: $accent;
+    background-color: $mantle;
+    border: 2px solid rgba($text, 0.1);
     padding: 6px 10px;
     cursor: pointer;
     display: flex;
     align-items: center;
     position: relative;
-    border-radius: 3px;
+    border-radius: 6px;
     transition: ease border-radius .2s;
 
     .text {

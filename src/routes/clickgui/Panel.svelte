@@ -5,7 +5,7 @@
     import Module from "./Module.svelte";
     import type {ModuleToggleEvent} from "../../integration/events";
     import {fly} from "svelte/transition";
-    import {quintOut} from "svelte/easing";
+    import {expoInOut, quintOut} from "svelte/easing";
     import {
         gridSize,
         highlightModuleName,
@@ -212,8 +212,8 @@
         class="panel"
         style="left: {panelConfig.left}px; top: {panelConfig.top}px; z-index: {panelConfig.zIndex};"
         bind:this={panelElement}
-        in:fly|global={{y: -30, duration: 200, easing: quintOut}}
-        out:fly|global={{y: -30, duration: 200, easing: quintOut}}
+        in:fly|global={{y: -30, duration: 250, easing: expoInOut}}
+        out:fly|global={{y: -30, duration: 250, easing: expoInOut}}
 >
     <!-- svelte-ignore a11y-no-static-element-interactions -->
     <div
@@ -226,7 +226,7 @@
                 src="img/clickgui/icon-{category.toLowerCase()}.svg"
                 alt="icon"
         />
-        <span class="category">{category}</span>
+        <span class="category">{category === 'Client' ? 'Catppuccin' : category}</span>
 
         <!-- svelte-ignore a11y_consider_explicit_label -->
         <button class="expand-toggle" on:click={toggleExpanded}>
@@ -272,7 +272,7 @@
   }
 
   .modules {
-    max-height: 545px;
+    max-height: 750px;
     overflow-y: auto;
     overflow-x: hidden;
     background-color: rgba($base, 1.0);

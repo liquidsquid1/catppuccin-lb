@@ -90,7 +90,8 @@
     }
 
     .nested-settings {
-        border-left: solid 2px $accent;
-        padding-left: 7px;
+        background: rgba($crust, 0.3);
+        width: 100%;
+        padding: 0px 4px;
     }
 </style>

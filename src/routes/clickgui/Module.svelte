@@ -123,7 +123,7 @@
       font-size: 12px;
       font-weight: 500;
       position: relative;
-      padding: 10px;
+      padding: 8px;
 
       &.highlight::before {
         content: "";
@@ -154,8 +154,7 @@
     }
 
     .settings {
-      background-color: rgba($base, 0.5);
-      border-left: solid 4px $accent;
+      background-color: rgba($crust, 0.75);
       padding: 0 11px 0 7px;
     }
 
