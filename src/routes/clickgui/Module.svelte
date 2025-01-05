@@ -95,6 +95,7 @@
             bind:this={moduleNameElement}
             class:enabled
             class:highlight={name === $highlightModuleName}
+            class:dim={$highlightModuleName !== null && name !== $highlightModuleName}
     >
         {$spaceSeperatedNames ? convertToSpacedString(name) : name}
     </div>
@@ -116,14 +117,17 @@
 
     .name {
       cursor: pointer;
-      transition: ease background-color 0.5s,
-      ease color 0.5s;
+      transition: ease background-color 0.5s, ease color 0.5s, ease filter 0.5s;
       color: $subtext0;
       text-align: center;
       font-size: 12px;
       font-weight: 500;
       position: relative;
       padding: 8px;
+
+      &.dim {
+        filter: opacity(75%) blur(6px);
+      }
 
       &.highlight::before {
         content: "";

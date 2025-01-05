@@ -242,7 +242,7 @@
         color: $text;
 
         &::after {
-          content: "Right-click to locate";
+          content: "RMB to locate";
           color: rgba($text, 0.4);
           font-size: 12px;
         }
