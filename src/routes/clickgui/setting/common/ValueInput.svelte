@@ -44,7 +44,6 @@
   @use "../../../../colors.scss" as *;
 
   .value {
-    font-family: monospace;
     color: $text;
     font-weight: 500;
     font-size: 12px;
