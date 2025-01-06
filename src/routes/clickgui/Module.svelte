@@ -126,7 +126,7 @@
       padding: 8px;
 
       &.dim {
-        filter: opacity(75%) blur(6px);
+        filter: opacity(75%) blur(6px) brightness(50%);
       }
 
       &.highlight::before {

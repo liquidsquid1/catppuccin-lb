@@ -74,6 +74,7 @@
     padding: 12px;
     min-width: 200px;
     color: rgba($text, 0.7);
+    box-shadow: 0px 0px 16px $base;
   }
 
   .header {
@@ -81,6 +82,7 @@
     align-items: center;
     font-size: 16px;
     font-weight: 900;
+    text-shadow: 0px 0px 10px $accent;
   }
 
   .accent {

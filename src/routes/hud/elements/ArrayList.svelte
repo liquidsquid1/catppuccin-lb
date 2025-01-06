@@ -8,7 +8,8 @@
     import { getTextWidth } from "../../../integration/text_measurement";
     import { convertToSpacedString, spaceSeperatedNames } from "../../../theme/theme_config";
     import { expoOut } from "svelte/easing";
-    import { scale } from "svelte/transition";
+    import { fly, scale } from "svelte/transition";
+  import { flip } from "svelte/animate";
 
     let enabledModules: Module[] = [];
 
@@ -57,7 +58,7 @@
 
 <div class="arraylist">
     {#each enabledModules as {name, tag, category} (name)}
-        <div class="module" transition:scale={{ duration: 500, easing: expoOut }}>
+        <div class="module" animate:flip={{ duration: 200 }} transition:fly={{ duration: 500, easing: expoOut }}>
             {$spaceSeperatedNames ? convertToSpacedString(name) : name}
             {#if tag}
                 <span class="tag"> {tag}</span>

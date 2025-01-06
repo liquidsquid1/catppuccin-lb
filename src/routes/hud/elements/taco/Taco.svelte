@@ -1,4 +1,4 @@
-<div class="shader-fix" />
+<div class="shader-fix"></div>
 
 <style lang="scss">
   .shader-fix {
