@@ -39,6 +39,7 @@
   border-radius: 12px;
   overflow: hidden;
   font-size: 14px;
+  border: 2px solid rgba($text, 0.1);
 }
 
 .entries {

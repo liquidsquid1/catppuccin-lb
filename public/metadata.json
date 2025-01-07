@@ -1,7 +1,7 @@
 {
-  "name": "LiquidBounce",
+  "name": "Catppuccin",
   "version": "0.1.0",
-  "author": "CCBlueX",
+  "author": "liquidsquid1",
   "supports": [
     "clickgui",
     "title",
@@ -194,7 +194,7 @@
             },
             {
               "name": "VerticalOffset",
-              "value": 550
+              "value": 144
             }
           ]
         }
@@ -374,11 +374,11 @@
             },
             {
               "name": "Vertical",
-              "value": "Bottom"
+              "value": "Top"
             },
             {
               "name": "VerticalOffset",
-              "value": 15
+              "value": 444
             }
           ]
         }
