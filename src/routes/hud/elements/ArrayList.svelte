@@ -8,8 +8,8 @@
     import { getTextWidth } from "../../../integration/text_measurement";
     import { convertToSpacedString, spaceSeperatedNames } from "../../../theme/theme_config";
     import { expoOut } from "svelte/easing";
-    import { fly, scale } from "svelte/transition";
-  import { flip } from "svelte/animate";
+    import { fly } from "svelte/transition";
+    import { flip } from "svelte/animate";
 
     let enabledModules: Module[] = [];
 
@@ -53,12 +53,12 @@
 
     function getIconPath(category: string): string {
         return `img/clickgui/icon-${category.toLowerCase()}.svg`;
-    }
+    }   
 </script>
 
 <div class="arraylist">
     {#each enabledModules as {name, tag, category} (name)}
-        <div class="module" animate:flip={{ duration: 200 }} transition:fly={{ duration: 500, easing: expoOut }}>
+        <div class="module" animate:flip={{ duration: 100 }} transition:fly={{ x: 50, duration: 100, easing: expoOut }}>
             {$spaceSeperatedNames ? convertToSpacedString(name) : name}
             {#if tag}
                 <span class="tag"> {tag}</span>

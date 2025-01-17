@@ -72,8 +72,9 @@
     @use "../../../../colors.scss" as *;
 
     .targethud {
-        background-color: rgba($base, 0.68);
-        border-radius: 5px;
+        background: rgba($base, 0.8);
+        box-shadow: 0px 0px 8px $base;
+        border-radius: 12px;
         overflow: hidden;
     }
 
@@ -83,13 +84,14 @@
             "a b d"
             "a c d";
         column-gap: 10px;
-        padding: 10px 15px;
+        padding: 10px 12px;
     }
 
     .name {
         grid-area: b;
         color: $text;
-        font-weight: 500;
+        font-weight: 900;
+        text-transform: lowercase;
         align-self: flex-end;
     }
 

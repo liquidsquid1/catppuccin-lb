@@ -3,7 +3,6 @@
     import type { ClientInfo, Session } from "../../../integration/types";
     import { onMount } from "svelte";
     import { listen } from "../../../integration/ws";
-    import type {Module} from "../../../integration/types";
     import {getModules} from "../../../integration/rest";
 
     async function canShowUsername() {
@@ -53,7 +52,7 @@
 <div class="watermark">
     <div class="watermark-content">
         <div class="logo">
-            <img src="img/clickgui/icon-client.svg" />
+            <img src="img/clickgui/icon-client.svg" alt="icon"/>
         </div>
         {#if session && showUsername}
             <div class="separator"></div>
