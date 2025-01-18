@@ -4,6 +4,7 @@
     import {fly} from "svelte/transition";
     import Notification from "./Notification.svelte";
     import type {NotificationEvent} from "../../../../integration/events";
+    import { Howl } from "howler";
 
     interface TNotification {
         animationKey: number;

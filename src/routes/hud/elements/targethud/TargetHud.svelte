@@ -72,8 +72,8 @@
     @use "../../../../colors.scss" as *;
 
     .targethud {
-        background: rgba($base, 0.8);
-        box-shadow: 0px 0px 8px $base;
+        background: rgba($base, 0.9);
+        box-shadow: 0px 0px 16px $base;
         border-radius: 12px;
         overflow: hidden;
     }
