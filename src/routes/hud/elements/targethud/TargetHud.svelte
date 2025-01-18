@@ -5,29 +5,16 @@
     import { scale } from "svelte/transition";
     import HealthProgress from "./HealthProgress.svelte";
     import type { TargetChangeEvent } from "../../../../integration/events";
-    import { Howl } from 'howler';
     import { cubicOut } from "svelte/easing";
 
     let target: PlayerData | null = null;
     let visible = true;
-    let engagePlayed = false;
     let hideTimeout: number;
-
-    const engageSound = new Howl({
-        src: ['audio/targethud/engage.wav'],
-        preload: true
-    });
-
-    const disengageSound = new Howl({
-        src: ['audio/targethud/disengage.wav'],
-        preload: true
-    });
 
     function startHideTimeout() {
         hideTimeout = setTimeout(() => {
             if (visible) {
                 visible = false;
-                disengageSound.play();
             }
         }, 500);
     }
@@ -36,18 +23,9 @@
         target = data.target;
         visible = true;
 
-        if (visible && !engagePlayed) {
-            engageSound.play();
-            engagePlayed = true;
-        }
-
         clearTimeout(hideTimeout);
         startHideTimeout();
     });
-
-    $: if (!visible) {
-        engagePlayed = false;
-    }
 </script>
 
 {#if visible && target != null}
@@ -72,8 +50,8 @@
     @use "../../../../colors.scss" as *;
 
     .targethud {
-        background: rgba($base, 0.8);
-        box-shadow: 0px 0px 8px $base;
+        background: rgba($base, 0.9);
+        box-shadow: 0px 0px 16px $base;
         border-radius: 12px;
         overflow: hidden;
     }

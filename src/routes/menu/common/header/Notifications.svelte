@@ -1,5 +1,4 @@
 <script lang="ts">
-    import {fly} from "svelte/transition";
     import {notification, type TNotification} from "./notification_store";
     import {onMount} from "svelte";
 

@@ -21,13 +21,13 @@
           "a c";
   grid-template-columns: max-content 1fr;
   column-gap: 10px;
-  background: rgba($base, 0.8);
+  background: rgba($base, 0.9);
   border-radius: 16px;
   width: 300px;
   overflow: hidden;
   padding: 10px;
   margin-bottom: 10px;
-  border: 1px solid rgba(white, 0.1);
+  box-shadow: 0px 0px 16px $base;
 }
 
 .icon {
@@ -61,7 +61,7 @@
       position: absolute;
       height: 10px;
       width: 10px;
-      border-radius: 5px;
+      border-radius: 8px;
       top: 50%;
       transform: translate(-50%, -50%);
       background-color: none;

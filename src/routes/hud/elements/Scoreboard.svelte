@@ -39,11 +39,11 @@
   border-radius: 12px;
   overflow: hidden;
   font-size: 14px;
-  border: 2px solid rgba($text, 0.1);
+  box-shadow: 0px 0px 16px $base;
 }
 
 .entries {
-  background-color: rgba($base, 0.8);
+  background-color: rgba($base, 0.9);
   padding: 10px;
 }
 
@@ -53,7 +53,7 @@
 
 .header {
   text-align: center;
-  background-color: rgba($mantle, 0.8);
+  background-color: rgba($mantle, 0.9);
   padding: 7px 10px;
   font-size: 14px;
   font-weight: 900;
