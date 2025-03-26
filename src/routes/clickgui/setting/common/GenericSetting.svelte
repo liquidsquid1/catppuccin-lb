@@ -9,6 +9,7 @@
     import IntRangeSetting from "../IntRangeSetting.svelte";
     import IntSetting from "../IntSetting.svelte";
     import TogglableSetting from "../TogglableSetting.svelte";
+    import MultiChooseSetting from "../MultiChooseSetting.svelte";
     import ColorSetting from "../ColorSetting.svelte";
     import TextSetting from "../TextSetting.svelte";
     import BlocksSetting from "../blocks/BlocksSetting.svelte";
@@ -40,6 +41,8 @@
             <ChoiceSetting {path} bind:setting={setting} on:change/>
         {:else if setting.valueType === "CHOOSE"}
             <ChooseSetting bind:setting={setting} on:change/>
+        {:else if setting.valueType === "MULTI_CHOOSE"}
+            <MultiChooseSetting {path} bind:setting={setting} on:change/>
         {:else if setting.valueType === "TOGGLEABLE"}
             <TogglableSetting {path} bind:setting={setting} on:change/>
         {:else if setting.valueType === "INT"}
