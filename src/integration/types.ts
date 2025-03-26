@@ -29,7 +29,16 @@ export type ModuleSetting =
     | TextArraySetting
     | BindSetting
     | VectorSetting
+    | MultiChooseSetting
     | KeySetting;
+
+export interface MultiChooseSetting {
+    valueType: string;
+    name: string;
+    choices: string[];
+    value: string[];
+    canBeNone: boolean;
+}
 
 export interface BlocksSetting {
     valueType: string;
