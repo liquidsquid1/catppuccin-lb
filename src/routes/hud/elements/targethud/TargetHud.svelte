@@ -68,7 +68,7 @@
                     <ArmorStatus itemStack={target.armorItems[0]} />
                 {/if}
             </div>
-        </div>
+        </div>    
         
         <HealthProgress maxHealth={target.maxHealth + target.absorption} health={target.actualHealth + target.absorption} />
     </div>

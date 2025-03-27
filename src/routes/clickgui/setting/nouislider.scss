@@ -20,7 +20,7 @@
     margin: 10px 0;
     height: 2px;
     border: none;
-    background-color: color.adjust($clickgui-text-color, $lightness: -80%);
+    background-color: color.adjust($text, $lightness: -80%);
     box-shadow: unset;
 }
 

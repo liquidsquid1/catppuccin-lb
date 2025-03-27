@@ -51,7 +51,7 @@
 
   .name {
     font-weight: 500;
-    color: $clickgui-text-color;
+    color: $text;
     font-size: 12px;
     margin-bottom: 5px;
   }
@@ -63,10 +63,10 @@
 
     input.value {
       width: 100%;
-      background-color: rgba($clickgui-base-color, .36);
+      background-color: rgba($base, .36);
       font-family: monospace;
       font-size: 12px;
-      color: $clickgui-text-color;
+      color: $text;
       border: none;
       border-bottom: solid 2px $accent;
       padding: 5px;
@@ -91,7 +91,7 @@
       background-color: transparent;
       border: none;
       cursor: pointer;
-      color: $clickgui-text-color;
+      color: $text;
       font-size: 12px;
       text-align: right;
     }

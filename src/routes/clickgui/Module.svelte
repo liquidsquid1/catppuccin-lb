@@ -137,7 +137,7 @@
       transition: ease background-color 0.2s,
       ease color 0.2s;
 
-      color: $clickgui-text-dimmed-color;
+      color: $overlay1;
       text-align: center;
       font-size: 12px;
       font-weight: 500;
@@ -155,8 +155,8 @@
       }
 
       &:hover {
-        background-color: rgba($clickgui-base-color, 0.85);
-        color: $clickgui-text-color;
+        background-color: rgba($base, 0.85);
+        color: $text;
       }
 
       &.enabled {
@@ -165,7 +165,7 @@
     }
 
     .settings {
-      background-color: rgba($clickgui-base-color, 0.5);
+      background-color: rgba($base, 0.5);
       border-left: solid 4px $accent;
       padding: 0 11px 0 7px;
     }

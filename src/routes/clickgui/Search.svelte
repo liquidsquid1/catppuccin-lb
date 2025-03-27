@@ -191,12 +191,12 @@
     left: 50%;
     top: 50px;
     transform: translateX(-50%);
-    background-color: rgba($clickgui-base-color, 0.9);
+    background-color: rgba($base, 0.9);
     width: 600px;
     border-radius: 30px;
     overflow: hidden;
     transition: ease border-radius 0.2s;
-    box-shadow: 0 0 10px rgba($clickgui-base-color, 0.5);
+    box-shadow: 0 0 10px rgba($base, 0.5);
 
     &.has-results {
       border-radius: 10px;
@@ -222,7 +222,7 @@
       grid-template-columns: max-content 1fr max-content;
 
       .module-name {
-        color: $clickgui-text-dimmed-color;
+        color: $overlay1;
         transition: ease color 0.2s;
       }
 
@@ -233,7 +233,7 @@
       }
 
       .aliases {
-        color: rgba($clickgui-text-dimmed-color, .6);
+        color: rgba($overlay1, .6);
         margin-left: 10px;
       }
 
@@ -242,18 +242,18 @@
       }
 
       &:hover {
-        color: $clickgui-text-color;
+        color: $text;
 
         &::after {
           content: "Right-click to locate";
-          color: rgba($clickgui-text-color, 0.4);
+          color: rgba($text, 0.4);
           font-size: 12px;
         }
       }
     }
 
     .placeholder {
-      color: $clickgui-text-dimmed-color;
+      color: $overlay1;
       font-size: 16px;
       padding: 10px 0;
     }
@@ -269,7 +269,7 @@
     border: none;
     font-family: "Outfit", sans-serif;
     font-size: 16px;
-    color: $clickgui-text-color;
+    color: $text;
     width: 100%;
   }
 </style>

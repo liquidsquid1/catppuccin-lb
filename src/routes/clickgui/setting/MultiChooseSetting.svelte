@@ -81,18 +81,18 @@
 
   .setting {
     padding: 7px 0;
-    color: $clickgui-text-color;
+    color: $text;
   }
 
   .title {
-    color: $clickgui-text-color;
+    color: $text;
     font-size: 12px;
     font-weight: 600;
   }
 
   .choice {
-    color: $clickgui-text-dimmed-color;
-    background-color: rgba($clickgui-base-color, 0.3);
+    color: $overlay1;
+    background-color: rgba($base, 0.3);
     border-radius: 3px;
     padding: 3px 6px;
     cursor: pointer;
@@ -101,7 +101,7 @@
     overflow-wrap: anywhere;
 
     &:hover {
-      color: $clickgui-text-color;
+      color: $text;
     }
 
     &.error {
@@ -135,7 +135,7 @@
 
   .choices {
     border-left: solid 2px $accent;
-    color: $clickgui-text-color;
+    color: $text;
     padding: 7px 7px;
     display: flex;
     flex-wrap: wrap;

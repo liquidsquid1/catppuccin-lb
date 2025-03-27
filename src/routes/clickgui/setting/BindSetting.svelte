@@ -135,7 +135,7 @@
     cursor: pointer;
     padding: 4px;
     font-weight: 500;
-    color: $clickgui-text-color;
+    color: $text;
     font-size: 12px;
     font-family: "Outfit", sans-serif;
     width: 100%;
@@ -148,7 +148,7 @@
     }
 
     .none {
-      color: $clickgui-text-dimmed-color;
+      color: $overlay1;
     }
   }
 </style>

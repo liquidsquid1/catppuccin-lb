@@ -28,7 +28,7 @@
 
   .name {
     font-weight: 500;
-    color: $clickgui-text-color;
+    color: $text;
     font-size: 12px;
     margin-left: 7px;
     white-space: nowrap;
@@ -42,7 +42,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: color.adjust($clickgui-text-color, $lightness: -55%);
+    background-color: color.adjust($text, $lightness: -55%);
     transition: ease 0.4s;
     height: 8px;
     border-radius: 4px;
@@ -54,7 +54,7 @@
       width: 12px;
       top: -2px;
       left: 0;
-      background-color: $clickgui-text-color;
+      background-color: $text;
       transition: ease 0.4s;
       border-radius: 50%;
     }

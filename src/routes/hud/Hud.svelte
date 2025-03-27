@@ -3,7 +3,6 @@
     import TargetHud from "./elements/targethud/TargetHud.svelte";
     import Watermark from "./elements/Watermark.svelte";
     import Notifications from "./elements/notifications/Notifications.svelte";
-    import TabGui from "./elements/tabgui/TabGui.svelte";
     import HotBar from "./elements/hotbar/HotBar.svelte";
     import Scoreboard from "./elements/Scoreboard.svelte";
     import {onMount} from "svelte";
@@ -49,8 +48,6 @@
                     <Watermark/>
                 {:else if c.name === "ArrayList"}
                     <ArrayList/>
-                {:else if c.name === "TabGui"}
-                    <TabGui/>
                 {:else if c.name === "Notifications"}
                     <Notifications/>
                 {:else if c.name === "TargetHud"}
