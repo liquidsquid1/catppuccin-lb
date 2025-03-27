@@ -3,10 +3,10 @@
         addProxyFromClipboard,
         checkProxy,
         connectToProxy as connectToProxyRest,
+        deleteScreen,
         disconnectFromProxy as disconnectFromProxyRest,
         getCurrentProxy,
         getProxies,
-        openScreen,
         removeProxy as removeProxyRest,
         setProxyFavorite,
     } from "../../../integration/rest.js";
@@ -254,7 +254,7 @@
         </ButtonContainer>
 
         <ButtonContainer>
-            <IconTextButton icon="icon-back.svg" title="Back" on:click={() => openScreen("title")}/>
+            <IconTextButton icon="icon-back.svg" title="Back" on:click={() => deleteScreen()}/>
         </ButtonContainer>
     </BottomButtonWrapper>
 </Menu>

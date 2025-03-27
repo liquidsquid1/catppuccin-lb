@@ -2,6 +2,7 @@
     import {createEventDispatcher} from "svelte";
     import type {ModuleSetting, TextSetting,} from "../../../integration/types";
     import {convertToSpacedString, spaceSeperatedNames} from "../../../theme/theme_config";
+    import {setTyping} from "../../../integration/rest";
 
     export let setting: ModuleSetting;
 
@@ -19,7 +20,11 @@
     <div class="name">{$spaceSeperatedNames ? convertToSpacedString(cSetting.name) : cSetting.name}</div>
     <input type="text" class="value" spellcheck="false"
            placeholder={$spaceSeperatedNames ? convertToSpacedString(cSetting.name) : cSetting.name}
-           bind:value={cSetting.value} on:input={handleChange}>
+           bind:value={cSetting.value}
+           on:input={handleChange}
+           on:focusin={async () => await setTyping(true)}
+           on:focusout={async () => await setTyping(false)}
+    >
 </div>
 
 <style lang="scss">
@@ -31,17 +36,17 @@
 
   .name {
     font-weight: 500;
-    color: $text;
+    color: $clickgui-text-color;
     font-size: 12px;
     margin-bottom: 5px;
   }
 
   .value {
     width: 100%;
-    background-color: rgba($base, .36);
+    background-color: rgba($clickgui-base-color, .36);
     font-family: monospace;
     font-size: 12px;
-    color: $text;
+    color: $clickgui-text-color;
     border: none;
     border-bottom: solid 2px $accent;
     padding: 5px;

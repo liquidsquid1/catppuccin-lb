@@ -36,7 +36,7 @@
 
     .module {
         font-weight: 500;
-        color: $overlay0;
+        color: $tabgui-text-dimmed-color;
         font-size: 12px;
         padding: 6px 15px 6px 10px;
         transition: ease color 0.2s;
@@ -46,7 +46,7 @@
         }
 
         &.selected {
-            background-color: rgba($base, 0.36);
+            background-color: rgba($tabgui-base-color, 0.36);
 
             .name {
                 transform: translateX(5px);
@@ -54,7 +54,7 @@
         }
 
         &.enabled {
-            color: $text;
+            color: $tabgui-text-color;
         }
     }
 </style>

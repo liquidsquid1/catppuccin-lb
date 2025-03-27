@@ -44,7 +44,8 @@
   @use "../../../../colors.scss" as *;
 
   .value {
-    color: $text;
+    font-family: monospace;
+    color: $clickgui-text-color;
     font-weight: 500;
     font-size: 12px;
     background-color: transparent;

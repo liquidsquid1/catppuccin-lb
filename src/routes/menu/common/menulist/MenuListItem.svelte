@@ -54,11 +54,10 @@
         "a b c"
         "a d c";
     grid-template-columns: max-content 1fr max-content;
-    background-color: rgba($crust, .9);
-    box-shadow: 0px 0px 8px rgba($crust, .9);
+    background-color: rgba($menu-base-color, .36);
     padding: 15px 25px;
     column-gap: 15px;
-    border-radius: 17px;
+    border-radius: 5px;
     transition: ease background-color .2s;
     align-items: center;
     cursor: grab;
@@ -67,7 +66,7 @@
       background-color: $accent;
 
       .subtitle {
-        color: $text;
+        color: $menu-text-color;
       }
 
       .buttons .active {
@@ -105,7 +104,7 @@
       bottom: 0;
       right: 0;
       display: none;
-      color: $text;
+      color: $menu-text-color;
       font-size: 12px;
       padding: 3px 10px;
       border-radius: 20px;
@@ -124,7 +123,7 @@
 
     .text {
       font-size: 20px;
-      color: $text;
+      color: $menu-text-color;
       font-weight: 600;
     }
   }
@@ -132,7 +131,7 @@
   .subtitle {
     grid-area: d;
     font-size: 18px;
-    color: $overlay0;
+    color: $menu-text-dimmed-color;
     transition: ease color .2s;
     align-self: flex-start;
   }

@@ -47,7 +47,7 @@
 </div>
 
 <style lang="scss">
-  @import "../../../../colors";
+  @use "../../../../colors.scss" as *;
 
   .account {
     background-color: rgba($hotbar-base-color, 0.68);
@@ -72,7 +72,7 @@
 
   .username {
     font-weight: 600;
-    color: $text;
+    color: $menu-text-color;
     font-size: 20px;
     grid-area: b;
     align-self: flex-end;
@@ -89,7 +89,7 @@
     }
 
     .offline {
-      color: $overlay0;
+      color: $menu-text-dimmed-color;
     }
   }
 

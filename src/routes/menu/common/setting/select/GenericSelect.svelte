@@ -1,4 +1,7 @@
 <script lang="ts">
+    import {quintOut} from "svelte/easing";
+    import {fade} from "svelte/transition";
+
     export let closeOnInternalClick: boolean;
 
     let expanded = false;
@@ -36,7 +39,7 @@
         <img src="img/menu/icon-select-arrow.svg" alt="expand">
     </div>
     {#if expanded}
-        <div class="options">
+        <div class="options" transition:fade|global={{ duration: 200, easing: quintOut }}>
             <slot name="options"></slot>
         </div>
     {/if}
@@ -52,28 +55,25 @@
 
     &.expanded {
       .header {
-        border-radius: 12px 12px 0 0;
+        border-radius: 5px 5px 0 0;
       }
     }
   }
 
   .header {
-    background: rgba($mantle, 0.5);
-    box-shadow: 0px 0px 8px $mantle;
-    border-bottom: 1px solid rgba(white, 0.1);
+    background-color: $accent;
     padding: 20px;
     display: flex;
     column-gap: 20px;
     align-items: center;
     justify-content: space-between;
-    border-radius: 12px;
+    border-radius: 5px;
     transition: ease border-radius .2s;
 
     .title {
-      color: $text;
+      color: $menu-text-color;
       font-size: 20px;
-      font-weight: 900;
-
+      font-weight: 500;
     }
   }
 
@@ -81,10 +81,9 @@
     position: absolute;
     z-index: 1000;
     width: 100%;
-    border-radius: 0 0 12px 12px;
+    border-radius: 0 0 5px 5px;
     max-height: 250px;
     overflow: auto;
-    background-color: rgba($mantle, 0.9);
-    border-left: $accent;
+    background-color: rgba($menu-base-color, 0.9);
   }
 </style>

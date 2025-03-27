@@ -5,7 +5,7 @@
     import Module from "./Module.svelte";
     import type {ModuleToggleEvent} from "../../integration/events";
     import {fly} from "svelte/transition";
-    import {expoInOut, quintOut} from "svelte/easing";
+    import {quintOut} from "svelte/easing";
     import {
         gridSize,
         highlightModuleName,
@@ -212,8 +212,8 @@
         class="panel"
         style="left: {panelConfig.left}px; top: {panelConfig.top}px; z-index: {panelConfig.zIndex};"
         bind:this={panelElement}
-        in:fly|global={{y: -30, duration: 250, easing: expoInOut}}
-        out:fly|global={{y: -30, duration: 250, easing: expoInOut}}
+        in:fly|global={{y: -30, duration: 200, easing: quintOut}}
+        out:fly|global={{y: -30, duration: 200, easing: quintOut}}
 >
     <!-- svelte-ignore a11y-no-static-element-interactions -->
     <div
@@ -226,7 +226,7 @@
                 src="img/clickgui/icon-{category.toLowerCase()}.svg"
                 alt="icon"
         />
-        <span class="category">{category === 'Client' ? 'Catppuccin' : category}</span>
+        <span class="category">{category}</span>
 
         <!-- svelte-ignore a11y_consider_explicit_label -->
         <button class="expand-toggle" on:click={toggleExpanded}>
@@ -245,11 +245,11 @@
   @use "../../colors.scss" as *;
 
   .panel {
-    border-radius: 8px;
-    width: 225px;
+    border-radius: 5px;
+    width: 250px;
     position: absolute;
     overflow: hidden;
-    box-shadow: 0 0 8px rgba($base, 0.8);
+    box-shadow: 0 0 10px rgba($clickgui-base-color, 0.5);
     will-change: transform;
     transition: none;
     user-select: none;
@@ -259,23 +259,24 @@
     display: grid;
     grid-template-columns: max-content 1fr max-content;
     align-items: center;
-    column-gap: 16px;
-    background-color: rgba($crust, 1.0);
+    column-gap: 12px;
+    background-color: rgba($clickgui-base-color, 0.9);
+    border-bottom: solid 2px $accent;
     padding: 10px 15px;
     cursor: grab;
 
     .category {
       font-size: 14px;
-      color: $text;
-      font-weight: 900;
+      color: $clickgui-text-color;
+      font-weight: 500;
     }
   }
 
   .modules {
-    max-height: 750px;
+    max-height: 545px;
     overflow-y: auto;
     overflow-x: hidden;
-    background-color: rgba($base, 1.0);
+    background-color: rgba($clickgui-base-color, 0.8);
   }
 
   .modules::-webkit-scrollbar {

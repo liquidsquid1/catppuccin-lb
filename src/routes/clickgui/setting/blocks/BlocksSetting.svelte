@@ -72,7 +72,7 @@
   }
 
   .name {
-    color: $text;
+    color: $clickgui-text-color;
     font-size: 12px;
     font-weight: 500;
     margin-bottom: 5px;
@@ -82,11 +82,11 @@
     width: 100%;
     border: none;
     border-bottom: solid 1px $accent;
-    font-family: "Inter", sans-serif;
+    font-family: "Outfit", sans-serif;
     font-size: 12px;
     padding: 5px;
-    color: $text;
+    color: $clickgui-text-color;
     margin-bottom: 5px;
-    background-color: rgba($base, .36);
+    background-color: rgba($clickgui-base-color, .36);
   }
 </style>

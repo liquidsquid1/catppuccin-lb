@@ -27,31 +27,27 @@
   .icon-text-input {
     display: grid;
     grid-template-columns: max-content 1fr max-content;
-    border: 1px solid rgba(white, 0.1);
-    border-radius: 12px;
-    background: rgba($mantle, 0.6);
-    box-shadow: 0px 0px 4px rgba($crust, 0.5);
   }
 
   .icon {
     height: 64px;
     width: 64px;
-    background: rgba($base, 0.75);
+    background-color: $accent;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 12px 0 0 12px;
+    border-radius: 5px 0 0 5px;
   }
 
   .input {
-    color: $text;
-    font-family: "Inter", sans-serif;
+    color: $menu-text-color;
+    font-family: "Outfit", sans-serif;
     font-size: 20px;
-    background-color: rgba($mantle, .5);
+    background-color: rgba($menu-base-color, .36);
     border: none;
     padding: 0 20px 0 18px;
-    border-radius: 0 12px 12px 0;
-    border-left: solid 2px $base;
+    border-radius: 0 5px 5px 0;
+    border-left: solid 2px $menu-base-color;
     width: 100%;
 
     &:invalid {

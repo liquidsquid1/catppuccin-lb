@@ -70,19 +70,18 @@
   }
 
   .head {
-    background-color: $mantle;
-    border: 2px solid rgba($text, 0.1);
+    background-color: $accent;
     padding: 6px 10px;
     cursor: pointer;
     display: flex;
     align-items: center;
     position: relative;
-    border-radius: 6px;
+    border-radius: 3px;
     transition: ease border-radius .2s;
 
     .text {
       font-weight: 500;
-      color: $text;
+      color: $clickgui-text-color;
       font-size: 12px;
       overflow: hidden;
       text-overflow: ellipsis;
@@ -110,7 +109,7 @@
 
   .options {
     padding: 6px 10px;
-    background-color: $base;
+    background-color: $clickgui-base-color;
     border: solid 1px $accent;
     border-top: none;
     border-radius: 0 0 3px 3px;
@@ -119,7 +118,7 @@
     position: absolute;
 
     .option {
-      color: $subtext0;
+      color: $clickgui-text-dimmed-color;
       font-weight: 500;
       font-size: 12px;
       padding: 5px 0;
@@ -128,7 +127,7 @@
       transition: ease color 0.2s;
 
       &:hover {
-        color: $text;
+        color: $clickgui-text-color;
       }
 
       &.active {

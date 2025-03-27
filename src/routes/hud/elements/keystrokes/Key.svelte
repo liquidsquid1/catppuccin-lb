@@ -26,25 +26,21 @@
 
   .key {
     height: 50px;
-    background: rgba($base, .8);
-    border: 2px solid rgba($text, 0.1);
-    color: $text;
+    background-color: rgba($keystrokes-base-color, .68);
+    color: $keystrokes-text-color;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 12px;
-    font-size: 16px;
-    font-weight: 900;
-    text-transform: lowercase;
-    transition: ease background .2s, ease color .2s, ease box-shadow .2s;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: 500;
+    transition: ease box-shadow .2s;
     position: relative;
-    box-shadow: 0px 0px 12px $base;
+    box-shadow: inset 0 0 0 0 $accent;
     text-align: center;
 
     &.active {
-      background: rgba($accent, .8);
-      box-shadow: 0px 0px 12px $accent;
-      color: $base;
+      box-shadow: inset 0 0 0 25px $accent;
     }
   }
 </style>

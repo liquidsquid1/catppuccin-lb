@@ -4,7 +4,6 @@
     import {fly} from "svelte/transition";
     import Notification from "./Notification.svelte";
     import type {NotificationEvent} from "../../../../integration/events";
-    import { Howl } from "howler";
 
     interface TNotification {
         animationKey: number;
@@ -16,35 +15,19 @@
 
     let notifications: TNotification[] = [];
 
-    const notification = new Howl({
-        src: ['audio/notifications/notification.mp3'],
-        preload: true
-    });
-
-    const error = new Howl({
-        src: ['audio/notifications/error.mp3'],
-        preload: true
-    });
-
-    const info = new Howl({
-        src: ['audio/notifications/info.mp3'],
-        preload: true
-    });
-
-    const success = new Howl({
-        src: ['audio/notifications/success.ogg'],
-        preload: true
-    });
-
     function addNotification(title: string, message: string, severity: string) {
         let animationKey = Date.now();
         const id = animationKey;
 
         if (severity === "ENABLED" || severity === "DISABLED") {
+            // Check if there still exists an enable/disable notification for the same module
             const index = notifications.findIndex((n) => n.message === message)
             if (index !== -1) {
+                // Set the id of the new notification to the old notification's id.
+                // This will make svelte able to animate it correctly
                 animationKey = notifications[index].animationKey;
 
+                // Remove the old notification
                 notifications.splice(index, 1);
             }
         }
@@ -61,22 +44,7 @@
 
     listen("notification", (e: NotificationEvent) => {
         addNotification(e.title, e.message, e.severity);
-
-        if (e.severity === "ERROR") {
-            error.play();
-        } else
-        if (e.severity === "INFO") {
-            info.play();
-        } else
-        if (e.severity === "SUCCESS") {
-            success.play();
-        } else {
-            notification.play();
-        }
-
     });
-
-    addNotification("Catppuccin", "Thank you for using my theme <3", "INFO")
 </script>
 
 <div class="notifications">

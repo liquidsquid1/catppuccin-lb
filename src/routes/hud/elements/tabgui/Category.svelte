@@ -31,7 +31,7 @@
 
     .name {
         font-weight: 500;
-        color: $text;
+        color: $tabgui-text-color;
         font-size: 14px;
         width: 100%;
         padding: 7px 12px 7px 12px;
@@ -57,7 +57,7 @@
     }
 
     .icon {
-        background-color: rgba($base, 0.68);
+        background-color: rgba($tabgui-base-color, 0.68);
         width: 62px;
         position: relative;
 

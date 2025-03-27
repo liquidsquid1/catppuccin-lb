@@ -126,7 +126,7 @@
 
     .modules {
       background-clip: content-box;
-      background-color: rgba($base, 0.5);
+      background-color: rgba($tabgui-base-color, 0.5);
       margin-left: 6px;
       border-radius: 5px;
       min-width: 100px;

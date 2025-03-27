@@ -22,6 +22,7 @@ export type ModuleSetting =
     | IntRangeSetting
     | ChoiceSetting
     | ChooseSetting
+    | MultiChooseSetting
     | ConfigurableSetting
     | TogglableSetting
     | ColorSetting
@@ -29,16 +30,7 @@ export type ModuleSetting =
     | TextArraySetting
     | BindSetting
     | VectorSetting
-    | MultiChooseSetting
     | KeySetting;
-
-export interface MultiChooseSetting {
-    valueType: string;
-    name: string;
-    choices: string[];
-    value: string[];
-    canBeNone: boolean;
-}
 
 export interface BlocksSetting {
     valueType: string;
@@ -160,6 +152,14 @@ export interface ChooseSetting {
     value: string;
 }
 
+export interface MultiChooseSetting {
+    valueType: string;
+    name: string;
+    choices: string[];
+    value: string[];
+    canBeNone: boolean;
+}
+
 export interface ConfigurableSetting {
     valueType: string;
     name: string;
@@ -179,7 +179,6 @@ export interface PersistentStorageItem {
 
 export interface VirtualScreen {
     name: string;
-    showingSplash: boolean;
 }
 
 export interface Scoreboard {
@@ -239,6 +238,7 @@ export interface ItemStack {
     damage: number;
     maxDamage: number;
     displayName: TextComponent | string;
+    hasEnchantment: boolean;
 }
 
 export interface PrintableKey {
@@ -377,10 +377,9 @@ export interface ClientInfo {
 }
 
 export interface ClientUpdate {
-    updateAvailable: boolean;
     development: boolean;
     commit: string;
-    newestVersion: {
+    update: {
         buildId: number | undefined;
         commitId: string | undefined;
         branch: string | undefined;
@@ -390,7 +389,7 @@ export interface ClientUpdate {
         date: string;
         message: string;
         url: string;
-    }
+    } | undefined;
 }
 
 export interface Browser {
@@ -421,11 +420,4 @@ export interface GeneratorResult {
 export interface Screen {
     class: string,
     title: string,
-}
-
-export interface Pointer {
-    radius: number;
-    color: string;
-    rotateX: number;
-    rotateZ: number;
 }

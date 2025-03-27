@@ -1,6 +1,6 @@
 <script lang="ts">
     import type {ConfigurableSetting, Module} from "../../integration/types";
-    import {getModuleSettings, setModuleEnabled} from "../../integration/rest";
+    import {getModuleSettings, setModuleEnabled, setTyping} from "../../integration/rest";
     import {listen} from "../../integration/ws";
     import type {ClickGuiValueChangeEvent, KeyboardKeyEvent, ModuleToggleEvent} from "../../integration/events";
     import {highlightModuleName} from "./clickgui_store";
@@ -110,6 +110,7 @@
     onMount(async () => {
         const clickGuiSettings = await getModuleSettings("ClickGUI");
         applyValues(clickGuiSettings);
+
         if (autoFocus) {
             searchInputElement.focus();
         }
@@ -147,6 +148,8 @@
             bind:this={searchInputElement}
             on:input={filterModules}
             on:keydown={handleBrowserKeyDown}
+            on:focusin={async () => await setTyping(true)}
+            on:focusout={async () => await setTyping(false)}
     />
 
     {#if query}
@@ -188,12 +191,12 @@
     left: 50%;
     top: 50px;
     transform: translateX(-50%);
-    background-color: rgba($base, 0.9);
+    background-color: rgba($clickgui-base-color, 0.9);
     width: 600px;
     border-radius: 30px;
     overflow: hidden;
     transition: ease border-radius 0.2s;
-    box-shadow: 0 0 10px rgba($base, 0.5);
+    box-shadow: 0 0 10px rgba($clickgui-base-color, 0.5);
 
     &.has-results {
       border-radius: 10px;
@@ -219,7 +222,7 @@
       grid-template-columns: max-content 1fr max-content;
 
       .module-name {
-        color: $subtext0;
+        color: $clickgui-text-dimmed-color;
         transition: ease color 0.2s;
       }
 
@@ -230,7 +233,7 @@
       }
 
       .aliases {
-        color: rgba($subtext0, .6);
+        color: rgba($clickgui-text-dimmed-color, .6);
         margin-left: 10px;
       }
 
@@ -239,18 +242,18 @@
       }
 
       &:hover {
-        color: $text;
+        color: $clickgui-text-color;
 
         &::after {
           content: "Right-click to locate";
-          color: rgba($text, 0.4);
+          color: rgba($clickgui-text-color, 0.4);
           font-size: 12px;
         }
       }
     }
 
     .placeholder {
-      color: $subtext0;
+      color: $clickgui-text-dimmed-color;
       font-size: 16px;
       padding: 10px 0;
     }
@@ -264,9 +267,9 @@
     padding: 15px 25px;
     background-color: transparent;
     border: none;
-    font-family: "Inter", sans-serif;
+    font-family: "Outfit", sans-serif;
     font-size: 16px;
-    color: $text;
+    color: $clickgui-text-color;
     width: 100%;
   }
 </style>

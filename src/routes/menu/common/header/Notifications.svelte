@@ -1,4 +1,5 @@
 <script lang="ts">
+    import {fly} from "svelte/transition";
     import {notification, type TNotification} from "./notification_store";
     import {onMount} from "svelte";
 
@@ -31,7 +32,7 @@
 
 <div class="notifications">
     {#each notifications as n (n.id)}
-        <div class="notification">
+        <div class="notification" transition:fly|global={{duration: 500, y: -100}}>
             <div class="icon" class:error={n.notification.error}>
                 <img src="img/hud/notification/icon-info.svg" alt="info">
             </div>
@@ -52,7 +53,7 @@
   .notification {
     grid-row-start: 1;
     grid-column-start: 1;
-    background-color: rgba($base, 0.68);
+    background-color: rgba($menu-base-color, 0.68);
     border-radius: 5px;
     display: grid;
     grid-template-areas:
@@ -64,7 +65,7 @@
     min-width: 350px;
 
     .title {
-      color: $text;
+      color: $menu-text-color;
       font-weight: 600;
       font-size: 18px;
       grid-area: b;
@@ -72,7 +73,7 @@
     }
 
     .message {
-      color: $overlay0;
+      color: $menu-text-dimmed-color;
       font-weight: 500;
       grid-area: c;
     }

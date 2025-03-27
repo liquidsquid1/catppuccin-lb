@@ -46,9 +46,9 @@
   }
 
   .tab-button {
-    font-family: "Inter", sans-serif;
-    background-color: rgba($base, .36);
-    color: $text;
+    font-family: "Outfit", sans-serif;
+    background-color: rgba($menu-base-color, .36);
+    color: $menu-text-color;
     padding: 10px;
     border: solid 2px transparent;
     border-radius: 5px;

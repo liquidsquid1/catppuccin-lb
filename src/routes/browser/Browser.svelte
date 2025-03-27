@@ -54,10 +54,7 @@
     });
 </script>
 
-<style lang="scss">
-
-    @use "../../colors.scss" as *;
-
+<style>
     .browser-controls {
         display: flex;
         justify-content: space-between;
@@ -66,30 +63,29 @@
         bottom: 10px;
         left: 10px;
         right: 10px;
-        background-color: $base;
+        background-color: #f8f9fa;
         padding: 10px;
         border-radius: 10px;
-        box-shadow: 0 4px 8px rgba($crust, 0.4);
-        border: 2px solid $accent;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
 
     .address-bar {
         flex-grow: 1;
         margin: 0 10px;
-        background: $surface0;
     }
 
     input {
         width: 100%;
         padding: 10px;
+        border: 1px solid #ced4da;
         border-radius: 5px;
         outline: none;
         font-size: 14px;
     }
 
     button {
-        background-color: $accent;
-        color: $text;
+        background-color: #007bff;
+        color: white;
         border: none;
         padding: 10px 15px;
         margin-left: 5px;
@@ -99,7 +95,7 @@
     }
 
     button:disabled {
-        background-color: $overlay0;
+        background-color: #6c757d;
         cursor: not-allowed;
     }
 

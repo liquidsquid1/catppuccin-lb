@@ -44,7 +44,7 @@
 
   .name {
     font-size: 12px;
-    color: $text;
+    color: $clickgui-text-color;
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
