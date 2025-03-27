@@ -40,6 +40,7 @@
     left: 5px;
     top: 50%;
     transform: translateY(-50%);
+    filter: drop-shadow(0px 0px 6px $crust);
   }
 
   .progress {

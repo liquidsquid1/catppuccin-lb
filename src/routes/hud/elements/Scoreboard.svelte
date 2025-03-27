@@ -50,7 +50,7 @@
   }
 
   .entries {
-    background-color: rgba($base, 0.9);
+    background-color: rgba($base, 0.8);
     padding: 10px;
   }
 
