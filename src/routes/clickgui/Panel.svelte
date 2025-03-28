@@ -245,7 +245,7 @@
   @use "../../colors.scss" as *;
 
   .panel {
-    border-radius: 5px;
+    border-radius: 16px;
     width: 250px;
     position: absolute;
     overflow: hidden;
@@ -259,16 +259,18 @@
     display: grid;
     grid-template-columns: max-content 1fr max-content;
     align-items: center;
-    column-gap: 12px;
-    background-color: rgba($base, 0.9);
-    border-bottom: solid 2px $accent;
+    column-gap: 6px;
+    background-color: rgba($mantle, 0.9);
+    text-align: center;
+    
     padding: 10px 15px;
     cursor: grab;
 
     .category {
-      font-size: 14px;
-      color: $text;
-      font-weight: 500;
+        background: linear-gradient(to right, $flamingo, $mauve, $blue);
+        background-clip: text;
+        color: transparent;
+        font-weight: 900;
     }
   }
 

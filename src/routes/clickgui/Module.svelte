@@ -134,8 +134,9 @@
 
     .name {
       cursor: pointer;
-      transition: ease background-color 0.2s,
-      ease color 0.2s;
+      transition: ease background 0.2s,
+      ease color 0.2s,
+      ease text-shadow 0.2s;
 
       color: $overlay1;
       text-align: center;
@@ -155,12 +156,14 @@
       }
 
       &:hover {
-        background-color: rgba($base, 0.85);
+        background: rgba($base, 0.85);
         color: $text;
       }
 
       &.enabled {
-        color: $accent;
+        background: linear-gradient(to right, $flamingo, $mauve);
+        text-shadow: 0px 0px 8px $base;
+        color: $base;
       }
     }
 
