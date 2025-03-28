@@ -11,10 +11,10 @@
         100% { background-position: 0% 50%; }
     }
 
-    @keyframes subtle-pulse {
-        0% { opacity: 0.6; filter: blur(12px) opacity(20%); }
-        50% { opacity: 0.8; filter: blur(14px) opacity(30%); }
-        100% { opacity: 0.6; filter: blur(12px) opacity(20%); }
+    @keyframes pulse {
+        0% { opacity: 0.6; filter: blur(12px) opacity(25%); }
+        50% { opacity: 0.8; filter: blur(14px) opacity(50%); }
+        100% { opacity: 0.6; filter: blur(12px) opacity(25%); }
     }
 
     .watermark-wrapper {
@@ -31,7 +31,7 @@
         opacity: 0.7;
         animation: 
             gradientAnimation 12s ease infinite,
-            subtle-pulse 8s ease-in-out infinite;
+            pulse 8s ease-in-out infinite;
     }
 
     .watermark-content {
