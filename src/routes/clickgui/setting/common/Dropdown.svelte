@@ -70,14 +70,13 @@
   }
 
   .head {
-    background-color: $mantle;
-    border: 2px solid rgba($text, 0.1);
+    background-color: $accent;
     padding: 6px 10px;
     cursor: pointer;
     display: flex;
     align-items: center;
     position: relative;
-    border-radius: 6px;
+    border-radius: 3px;
     transition: ease border-radius .2s;
 
     .text {
@@ -119,7 +118,7 @@
     position: absolute;
 
     .option {
-      color: $subtext0;
+      color: $overlay1;
       font-weight: 500;
       font-size: 12px;
       padding: 5px 0;

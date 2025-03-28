@@ -23,10 +23,10 @@
 
 <svelte:window on:keydown={handleKeyDown}/>
 <button class="button-setting" class:inset type="button" on:click={() => dispatch("click")} {disabled} class:secondary>
-  {#if loading}
-      <CircleLoader/>
-  {/if}
-  {title}
+    {#if loading}
+        <CircleLoader/>
+    {/if}
+    {title}
 </button>
 
 <style lang="scss">
@@ -35,19 +35,21 @@
 
   .button-setting {
     position: relative;
-    color: $text;
-    font-family: "Inter", sans-serif;
-    font-weight: 900;
-    padding: 20px;
     border: none;
-    border-radius: 12px;
+    background-color: $accent;
+    color: $menu-text-color;
+    font-family: "Outfit", sans-serif;
+    padding: 20px;
+    border-radius: 5px;
     font-size: 20px;
-    transition: ease background-color .2s, ease opacity .2s, border-bottom .2s ease;
-    background: rgba($mantle, .6);
-    box-shadow: 0px 0px 16px rgba($crust, .5);
+    transition: ease background-color .2s, ease opacity .2s;
 
     &.inset {
       margin: 0 30px;
+    }
+
+    &.secondary {
+      background-color: rgba($menu-base-color, .36);
     }
 
     &:not([disabled]):hover {
@@ -55,7 +57,7 @@
       cursor: pointer;
 
       &.secondary {
-        background-color: color.adjust(color.adjust($base, $saturation: -30%), $lightness: -10%);
+        background-color: color.adjust(color.adjust($menu-base-color, $saturation: -30%), $lightness: -10%);
       }
     }
 

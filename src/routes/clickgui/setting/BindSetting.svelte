@@ -3,7 +3,7 @@
     import type {BindSetting, ModuleSetting} from "../../../integration/types";
     import {listen} from "../../../integration/ws";
     import {getPrintableKeyName} from "../../../integration/rest";
-    import type {KeyboardKeyEvent} from "../../../integration/events";
+    import type {KeyboardKeyEvent, MouseButtonEvent} from "../../../integration/events";
     import {convertToSpacedString, spaceSeperatedNames} from "../../../theme/theme_config";
     import Dropdown from "./common/Dropdown.svelte";
 
@@ -15,6 +15,7 @@
 
     const dispatch = createEventDispatcher();
 
+    let isHovered = false;
     let binding = false;
     let printableKeyName = "";
 
@@ -50,6 +51,25 @@
         dispatch("change");
     });
 
+    listen("mouseButton", async (e: MouseButtonEvent) => {
+        if (e.screen === undefined || !e.screen.class.startsWith("net.ccbluex.liquidbounce") ||
+            !(e.screen.title === "ClickGUI" || e.screen.title === "VS-CLICKGUI")) {
+            return;
+        }
+
+        if (!binding || (e.button === 0 && isHovered)) {
+            return;
+        }
+
+        binding = false;
+
+        cSetting.value.boundKey = e.key;
+
+        setting = {...cSetting};
+
+        dispatch("change");
+    })
+
     async function toggleBinding() {
         if (binding) {
             cSetting.value.boundKey = UNKNOWN_KEY;
@@ -69,7 +89,12 @@
 </script>
 
 <div class="setting" class:has-value={cSetting.value.boundKey !== UNKNOWN_KEY}>
-    <button class="change-bind" on:click={toggleBinding}>
+    <button
+            class="change-bind"
+            on:click={toggleBinding}
+            on:mouseenter={() => isHovered = true}
+            on:mouseleave={() => isHovered = false}
+    >
         {#if !binding}
             <div class="name">{$spaceSeperatedNames ? convertToSpacedString(cSetting.name) : cSetting.name}:</div>
 
@@ -104,19 +129,18 @@
   }
 
   .change-bind {
-    background: $mantle;
-    border: 2px solid rgba($text, 0.1);
-    border-radius: 6px;
+    background-color: transparent;
+    border: solid 2px $accent;
+    border-radius: 3px;
     cursor: pointer;
     padding: 4px;
-    font-weight: 900;
+    font-weight: 500;
     color: $text;
     font-size: 12px;
-    font-family: "Inter", sans-serif;
+    font-family: "Outfit", sans-serif;
     width: 100%;
     display: flex;
     justify-content: center;
-    align-items: center;
     column-gap: 5px;
 
     .name {
@@ -124,9 +148,7 @@
     }
 
     .none {
-      color: $subtext1;
-      opacity: 75%;
-      font-weight: 300;
+      color: $overlay1;
     }
   }
 </style>

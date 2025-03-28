@@ -1,12 +1,33 @@
-<div class="shader-fix"></div>
+<script lang="ts">
+    let left = -100;
+    setInterval(() => {
+        left += 100;
+
+        if (left > window.innerWidth + 100) {
+            left = -100;
+        }
+    }, 500);
+</script>
+
+<div class="taco">
+    <img src="img/hud/taco/taco.gif" alt="taco no load :(("
+         class:transition={left < window.innerWidth + 100 && left > -100} style="left: {left}px">
+</div>
 
 <style lang="scss">
-  .shader-fix {
-    width: 100vw;
-    height: 100vh;
-    margin: 0;
-    padding: 0;
-    background: rgba(0, 0, 0, 0.1);
-    z-index: -1;
+  .taco {
+    position: relative;
+    height: 60px;
+    background-color: red;
+
+    img {
+      position: absolute;
+      height: 100%;
+
+      &.transition {
+        transition: linear left 500ms;
+      }
+    }
   }
 </style>
+

@@ -1,6 +1,6 @@
 <script lang="ts">
     import {createEventDispatcher} from "svelte";
-    import type {ModuleSetting, MultiChooseSetting} from "../../../integration/types";
+    import type {ModuleSetting, MultiChooseSetting,} from "../../../integration/types";
     import {slide} from "svelte/transition";
     import {convertToSpacedString, spaceSeperatedNames} from "../../../theme/theme_config";
     import ExpandArrow from "./common/ExpandArrow.svelte";
@@ -80,8 +80,8 @@
   @use "../../../colors.scss" as *;
 
   .setting {
-    padding: 4px 0;
-    color: rgba($crust, 0.3);
+    padding: 7px 0;
+    color: $text;
   }
 
   .title {
@@ -91,13 +91,13 @@
   }
 
   .choice {
-    color: $subtext0;
+    color: $overlay1;
     background-color: rgba($base, 0.3);
     border-radius: 3px;
     padding: 3px 6px;
     cursor: pointer;
     font-weight: 500;
-    transition: ease 0.2s;
+    transition: ease color 0.2s;
     overflow-wrap: anywhere;
 
     &:hover {
@@ -107,13 +107,11 @@
     &.error {
       background-color: rgba($menu-error-color, 0.1) !important;
       color: $menu-error-color !important;
-      box-shadow: 0 0 8px 2px rgba($menu-error-color, 0.1);
     }
 
     &.active {
       background-color: rgba($accent, 0.1);
       color: $accent;
-      box-shadow: 0 0 8px 2px rgba($accent, 0.1);
     }
   }
 
@@ -121,13 +119,14 @@
     letter-spacing: 1px;
     font-weight: 500;
     font-size: 12px;
-    color: $text;
+    font-family: monospace;
   }
 
   .head {
     display: grid;
     grid-template-columns: 1fr max-content max-content;
     transition: ease margin-bottom .2s;
+    align-items: center;
 
     &.expanded {
       margin-bottom: 10px;
@@ -135,7 +134,9 @@
   }
 
   .choices {
-    padding: 4px 4px;
+    border-left: solid 2px $accent;
+    color: $text;
+    padding: 7px 7px;
     display: flex;
     flex-wrap: wrap;
     gap: 7px;

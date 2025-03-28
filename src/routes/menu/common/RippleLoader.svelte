@@ -1,13 +1,12 @@
 <div class="lds-ripple"><div></div><div></div></div>
 
 <style lang="scss">
-
   /*
-    Taken from https://loading.io/css/
-  */
+  Taken from https://loading.io/css/
+ */
 
-  @import "../../../colors";
-
+  @use "../../../colors.scss" as *;
+ 
   .lds-ripple {
     color: $accent;
   }

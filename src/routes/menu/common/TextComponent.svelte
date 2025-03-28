@@ -3,7 +3,7 @@
 
     export let textComponent: TTextComponent | string;
     export let allowPreformatting = false;
-    export let preFormattingMonospace = true
+    export let preFormattingMonospace = true;
     export let inheritedColor = "#ffffff";
     export let inheritedStrikethrough = false;
     export let inheritedItalic = false;
@@ -12,22 +12,22 @@
     export let fontSize: number;
 
     const colors: { [name: string]: string } = {
-        black: "#11111b", // Final
-        dark_blue: "#1e66f5", // Final
-        dark_green: "#40a02b", // Final (from Latte)
-        dark_aqua: "#04a5e5", // Final (from Latte)
-        dark_red: "#d20f39", // Final (from Latte)
-        dark_purple: "#cba6f7", // Final (Mauve)
-        gold: "#df8e1d", // Final
-        gray: "#a6adc8", // Final
-        dark_gray: "#6c7086", // Final
-        blue: "#89b4fa", // Final
-        green: "#a6e3a1", // Final
-        aqua: "#89dceb", // Final
-        red: "#f38ba8", // Final
-        light_purple: "#b4befe", // Mauve 🎉 (thats a lie, its Lavender)
-        yellow: "#f9e2af", // Final
-        white: "#cdd6f4" // 🎉🎉🎉🎉 I just felt goofy 🤑🤑
+        black: "#000000",
+        dark_blue: "#0000aa",
+        dark_green: "#00aa00",
+        dark_aqua: "#00aaaa",
+        dark_red: "#aa0000",
+        dark_purple: "#aa00aa",
+        gold: "#ffaa00",
+        gray: "#aaaaaa",
+        dark_gray: "#555555",
+        blue: "#5555ff",
+        green: "#55ff55",
+        aqua: "#55ffff",
+        red: "#ff5555",
+        light_purple: "#ff55ff",
+        yellow: "#ffff55",
+        white: "#ffffff"
     };
 
     function translateColor(color: string): string {
@@ -117,6 +117,7 @@
                       class:underlined={textComponent.underlined !== undefined ? textComponent.underlined : inheritedUnderlined}
                       class:strikethrough={textComponent.strikethrough !== undefined ? textComponent.strikethrough : inheritedStrikethrough}
                       class:allow-preformatting={allowPreformatting}
+                      class:monospace={preFormattingMonospace && allowPreformatting}
                       style="color: {textComponent.color !== undefined ? translateColor(textComponent.color) : translateColor(inheritedColor)}; font-size: {fontSize}px;">{textComponent.text}</span>
             {:else}
                 <svelte:self {allowPreformatting} {preFormattingMonospace} {fontSize}
@@ -151,7 +152,6 @@
         display: inline;
 
         &.allow-preformatting {
-            font-family: "Inter";
             white-space: pre;
         }
 

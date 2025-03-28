@@ -1,8 +1,9 @@
 <script lang="ts">
     import {
+        deleteScreen,
         getAccounts,
         loginToAccount as loginToAccountRest,
-        openScreen, orderAccounts,
+        orderAccounts,
         removeAccount as restRemoveAccount,
         restoreSession,
         setAccountFavorite
@@ -202,7 +203,7 @@
         </ButtonContainer>
 
         <ButtonContainer>
-            <IconTextButton icon="icon-back.svg" title="Back" on:click={() => openScreen("title")}/>
+            <IconTextButton icon="icon-back.svg" title="Back" on:click={() => deleteScreen()}/>
         </ButtonContainer>
     </BottomButtonWrapper>
 </Menu>

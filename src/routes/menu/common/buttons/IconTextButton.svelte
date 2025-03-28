@@ -24,17 +24,19 @@
       display: flex;
       border: none;
 
-      border-radius: 16px;
-      border: 1px solid rgba(white, 0.1);
-      background: rgba($base, 0.75);
+      border-radius: 5px;
       align-items: center;
       overflow: hidden;
-      transition: ease opacity .2s, transform .3s ease;
+      background: linear-gradient(to left, rgba($menu-base-color, .36) 50%, $accent 50%);
+      background-size: 200% 100%;
+      background-position: right bottom;
+      will-change: background-position;
+      transition: ease opacity .2s, background-position .2s ease-out;
 
       &:not([disabled]):hover {
         &:hover {
+          background-position: left bottom;
           cursor: pointer;
-          transform: translateY(-4px);
         }
       }
 
@@ -46,7 +48,7 @@
     .icon {
       height: 58px;
       width: 58px;
-      background: rgba($crust, 0.75);
+      background-color: $accent;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -55,7 +57,7 @@
     .title {
       font-size: 20px;
       font-weight: 500;
-      color: $accent;
+      color: $menu-text-color;
       padding: 0 30px;
     }
 </style>

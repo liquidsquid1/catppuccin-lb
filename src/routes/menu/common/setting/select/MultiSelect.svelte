@@ -1,4 +1,6 @@
 <script lang="ts">
+    import {slide} from "svelte/transition";
+    import {quintOut} from "svelte/easing";
     import {createEventDispatcher} from "svelte";
     import GenericSelect from "./GenericSelect.svelte";
 
@@ -29,7 +31,8 @@
 
     <svelte:fragment slot="options">
         {#each options as o}
-            <div on:click={() => handleOptionClick(o)} class="option" class:active={values.includes(o)}>
+            <div on:click={() => handleOptionClick(o)} class="option" class:active={values.includes(o)}
+                 transition:slide|global={{ duration: 200, easing: quintOut }}>
                 <span>{o}</span>
             </div>
         {/each}
@@ -41,13 +44,13 @@
 
   .option {
     font-weight: 500;
-    color: $overlay0;
+    color: $menu-text-dimmed-color;
     font-size: 20px;
     padding: 15px 20px;
     transition: ease color .2s;
 
     &:hover {
-      color: $text;
+      color: $menu-text-color;
     }
 
     &.active {

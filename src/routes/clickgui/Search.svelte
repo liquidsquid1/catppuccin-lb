@@ -1,6 +1,6 @@
 <script lang="ts">
     import type {ConfigurableSetting, Module} from "../../integration/types";
-    import {getModuleSettings, setModuleEnabled} from "../../integration/rest";
+    import {getModuleSettings, setModuleEnabled, setTyping} from "../../integration/rest";
     import {listen} from "../../integration/ws";
     import type {ClickGuiValueChangeEvent, KeyboardKeyEvent, ModuleToggleEvent} from "../../integration/events";
     import {highlightModuleName} from "./clickgui_store";
@@ -110,6 +110,7 @@
     onMount(async () => {
         const clickGuiSettings = await getModuleSettings("ClickGUI");
         applyValues(clickGuiSettings);
+
         if (autoFocus) {
             searchInputElement.focus();
         }
@@ -147,6 +148,8 @@
             bind:this={searchInputElement}
             on:input={filterModules}
             on:keydown={handleBrowserKeyDown}
+            on:focusin={async () => await setTyping(true)}
+            on:focusout={async () => await setTyping(false)}
     />
 
     {#if query}
@@ -219,7 +222,7 @@
       grid-template-columns: max-content 1fr max-content;
 
       .module-name {
-        color: $subtext0;
+        color: $overlay1;
         transition: ease color 0.2s;
       }
 
@@ -230,7 +233,7 @@
       }
 
       .aliases {
-        color: rgba($subtext0, .6);
+        color: rgba($overlay1, .6);
         margin-left: 10px;
       }
 
@@ -250,7 +253,7 @@
     }
 
     .placeholder {
-      color: $subtext0;
+      color: $overlay1;
       font-size: 16px;
       padding: 10px 0;
     }
@@ -264,7 +267,7 @@
     padding: 15px 25px;
     background-color: transparent;
     border: none;
-    font-family: "Inter", sans-serif;
+    font-family: "Outfit", sans-serif;
     font-size: 16px;
     color: $text;
     width: 100%;

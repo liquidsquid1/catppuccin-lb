@@ -82,7 +82,7 @@
     width: 100%;
     border: none;
     border-bottom: solid 1px $accent;
-    font-family: "Inter", sans-serif;
+    font-family: "Outfit", sans-serif;
     font-size: 12px;
     padding: 5px;
     color: $text;

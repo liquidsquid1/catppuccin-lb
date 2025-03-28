@@ -68,7 +68,7 @@
         {#if overlayMessage !== null}
             <div class="overlay-message" out:fade={{duration: 200}}
                  style="max-width: {slotsElement?.offsetWidth ?? 0}px">
-                <TextComponent fontSize={14} textComponent={overlayMessage.text}/>
+                <TextComponent fontSize={14} textComponent={overlayMessage.text} allowPreformatting={true} />
             </div>
         {/if}
         {#if showItemStackName && itemStackName !== null}
@@ -83,7 +83,7 @@
                     <Status
                             max={20}
                             value={playerData.armor}
-                            color="#49EAD6"
+                            color="#f2cdcd"
                             alignRight={false}
                             icon="shield"
                     />
@@ -95,7 +95,7 @@
                     <Status
                             max={playerData.maxAir}
                             value={playerData.air}
-                            color="#AAC1E3"
+                            color="#f5c2e7"
                             alignRight={true}
                     />
                 {:else}
@@ -109,7 +109,7 @@
                         <Status
                                 max={maxAbsorption}
                                 value={playerData.absorption}
-                                color="#D4AF37"
+                                color="#cba6f7"
                                 alignRight={false}
                         />
 
@@ -120,14 +120,14 @@
                     <Status
                             max={playerData.maxHealth}
                             value={playerData.health}
-                            color="#FC4130"
+                            color="#f38ba8"
                             alignRight={false}
                             icon="heart"
                     />
                     <Status
                             max={20}
                             value={playerData.food}
-                            color="#B88458"
+                            color="#89b4fa"
                             alignRight={true}
                             icon="food"
                     />
@@ -136,7 +136,7 @@
             {#if playerData.experienceLevel > 0}
                 <Status
                         max={100} value={playerData.experienceProgress * 100}
-                        color="#88C657"
+                        color="#a6e3a1"
                         alignRight={false}
                         label={playerData.experienceLevel.toString()}
                 />
@@ -183,18 +183,19 @@
   }
 
   .hotbar-elements {
-    background-color: rgba($hotbar-base-color, 0.68);
+    background-color: rgba($base, 0.8);
+    border: 1px solid rgba($text, 0.3);
     position: relative;
-    border-radius: 5px;
+    border-radius: 16px;
     overflow: hidden;
 
     .slider {
-      border: solid 2px $accent;
+      background: $crust;
       height: 45px;
       width: 45px;
       position: absolute;
-      border-radius: 5px;
-      /* transition: linear left 0.05s; TODO: Animation is possible but annoying */
+      border-radius: 16px;
+      transition: ease left 0.1s;
     }
 
     .slots {
@@ -210,8 +211,8 @@
   .offhand-slot {
     height: 45px;
     width: 45px;
-    border-radius: 5px;
-    background-color: rgba($hotbar-base-color, 0.68);
+    border-radius: 16px;
+    background-color: rgba($base, 0.8);
     position: absolute;
     bottom: 0;
     left: -65px;
@@ -222,9 +223,9 @@
     font-size: 14px;
     margin: 0 auto 15px;
     font-weight: 500;
-    background-color: rgba($hotbar-base-color, .68);
+    background-color: rgba($base, 0.8);
     padding: 5px 8px;
-    border-radius: 5px;
+    border-radius: 16px;
     width: max-content;
   }
 

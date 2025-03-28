@@ -19,12 +19,13 @@
 
         const modulesWithWidths = visibleModules.map(module => {
                 let formattedName = $spaceSeperatedNames ? convertToSpacedString(module.name) : module.name;
-                let fullName = module.tag == null ? formattedName : `${formattedName} ${module.tag}`;
-                let categoryIconWidth = getTextWidth(" ", "500 14px Inter") + 16;
+                formattedName = formattedName.toLowerCase();
+                let fullName = module.tag == null ? formattedName : `${formattedName} ${module.tag.toLowerCase()}`;
+                let categoryIconWidth = getTextWidth(" ", "500 14px Outfit") + 16;
 
                 return {
                     ...module,
-                    width: getTextWidth(fullName, "500 14px Inter") + categoryIconWidth
+                    width: getTextWidth(fullName, "500 14px Outfit") + categoryIconWidth
                 };
             }
         );
@@ -59,9 +60,9 @@
 <div class="arraylist">
     {#each enabledModules as {name, tag, category} (name)}
         <div class="module" animate:flip={{ duration: 100 }} transition:fly={{ x: 50, duration: 100, easing: expoOut }}>
-            {$spaceSeperatedNames ? convertToSpacedString(name) : name}
+            {$spaceSeperatedNames ? convertToSpacedString(name.toLowerCase()) : name.toLowerCase()}
             {#if tag}
-                <span class="tag"> {tag}</span>
+                <span class="tag"> {tag.toLowerCase()}</span>
             {/if}
             <span class="category">
                 <img src={getIconPath(category)} alt={category}>
@@ -80,7 +81,7 @@
     }
   
     .module {
-      background: rgba($base, 0.8);
+      background: rgba($base, 0.9);
       box-shadow: 0px 0px 6px rgba($base, 0.8);
       border-radius: 8px;
       border-top-right-radius: 0px;
@@ -96,7 +97,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 4px;
+      gap: 6px;
     }
   
     .tag {

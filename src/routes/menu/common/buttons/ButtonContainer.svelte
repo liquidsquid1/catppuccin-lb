@@ -6,10 +6,10 @@
     @use "../../../../colors.scss" as *;
 
     .button-container {
-      background-color: rgba($base, 0.5);
-      padding: 12px 30px;
+      background-color: rgba($menu-base-color, 0.68);
+      padding: 15px 30px;
       width: max-content;
-      border-radius: 16px;
+      border-radius: 5px;
       display: flex;
       column-gap: 20px;
     }

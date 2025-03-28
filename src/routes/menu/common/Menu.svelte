@@ -3,7 +3,7 @@
     import {fly} from "svelte/transition";
     import {onMount} from "svelte";
 
-    const transitionDuration = 0; // TODO: suboptimal
+    const transitionDuration = 700; // TODO: suboptimal
 
     let ready = false;
 
@@ -16,7 +16,7 @@
 
 <div class="menu">
     {#if ready}
-        <div>
+        <div transition:fly|global={{duration: 700, y: -100}}>
             <Header/>
         </div>
 
