@@ -5,6 +5,18 @@
 <style lang="scss">
     @use "../../../colors.scss" as *;
 
+    @keyframes gradientAnimation {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+    }
+
+    @keyframes subtle-pulse {
+        0% { opacity: 0.6; filter: blur(12px) opacity(20%); }
+        50% { opacity: 0.8; filter: blur(14px) opacity(30%); }
+        100% { opacity: 0.6; filter: blur(12px) opacity(20%); }
+    }
+
     .watermark-wrapper {
         position: relative;
         display: inline-block;
@@ -13,10 +25,13 @@
     .glow {
         position: absolute;
         inset: -8px;
-        background: linear-gradient(to right, $flamingo, $mauve, $blue);
+        background: linear-gradient(to right, $flamingo, $mauve, $blue, $lavender, $mauve);
+        background-size: 300% 100%;
         border-radius: 1.0rem;
-        filter: blur(12px) opacity(25%);
         opacity: 0.7;
+        animation: 
+            gradientAnimation 12s ease infinite,
+            subtle-pulse 8s ease-in-out infinite;
     }
 
     .watermark-content {
@@ -29,14 +44,18 @@
         display: flex;
         align-items: center;
         gap: 0.5rem;
+        position: relative;
+        z-index: 1;
     }
 
     .watermark-content span {
         font-size: 1.25rem;
         font-weight: bold;
-        background: linear-gradient(to right, $flamingo, $mauve, $blue);
+        background: linear-gradient(to right, $flamingo, $mauve, $blue, $mauve);
+        background-size: 300% 100%;
         background-clip: text;
         color: transparent;
+        animation: gradientAnimation 8s ease infinite;
     }
 </style>
 
