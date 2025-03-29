@@ -1,7 +1,10 @@
 export interface Module {
     name: string;
     category: string;
-    keyBind: number;
+    keyBind: number | {
+        boundKey: string;
+        action: string;
+    };
     enabled: boolean;
     description: string;
     hidden: boolean;
